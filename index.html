@@ -231,6 +231,7 @@
   .mobile-menu a{font-family:var(--serif); font-size:26px; color:var(--text); text-decoration:none; padding:16px 0; border-bottom:1px solid var(--border-soft);}
   .mobile-menu .btn{margin-top:24px;}
 </style>
+<link rel="stylesheet" href="assets/lks-engine.css">
 </head>
 <body>
 <header class="site">
@@ -243,6 +244,7 @@
       <a href="#services">Services</a>
       <a href="#how">How it works</a>
       <a href="#example">Example</a>
+      <a href="#products">Products</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-cta">
@@ -264,6 +266,7 @@
   <a href="#services">Services</a>
   <a href="#how">How it works</a>
   <a href="#example">Example</a>
+  <a href="#products">Products</a>
   <a href="#about">About</a>
   <a class="btn btn-primary btn-block" href="#start">Start a Project</a>
 </div>
@@ -415,6 +418,288 @@
     </div>
   </section>
 
+  <!-- ================= LKSystems Product Engine (additive module) =================
+       Styles: assets/lks-engine.css · Behaviour: assets/lks-engine.js
+       Everything inside uses `lks-` prefixed classes/ids so it can't collide
+       with the rest of the page. Delete this section + the two asset tags to remove it. -->
+  <section id="products" class="lks-engine" aria-labelledby="lks-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">LKSystems Product Engine</div>
+        <h2 id="lks-title">Products, tools &amp; games.</h2>
+        <p>Everything we're building, in one place — commission a custom build, spec a PC, scout local leads, or play one of our Roblox games.</p>
+      </div>
+
+      <div class="lks-shell reveal" style="transition-delay:.06s">
+        <div class="lks-tabs" role="tablist" aria-label="LKSystems products">
+          <button class="lks-tab" type="button" role="tab" id="lks-tab-requests" aria-controls="lks-panel-requests" aria-selected="true" tabindex="0">
+            <span class="lks-tab-num">01</span>
+            <span class="lks-tab-body"><span class="lks-tab-title">Custom Requests</span><span class="lks-tab-desc">Commission a build</span></span>
+          </button>
+          <button class="lks-tab" type="button" role="tab" id="lks-tab-pc" aria-controls="lks-panel-pc" aria-selected="false" tabindex="-1">
+            <span class="lks-tab-num">02</span>
+            <span class="lks-tab-body"><span class="lks-tab-title">PC Parts Advisor</span><span class="lks-tab-desc">3-step build wizard</span></span>
+          </button>
+          <button class="lks-tab" type="button" role="tab" id="lks-tab-prospector" aria-controls="lks-panel-prospector" aria-selected="false" tabindex="-1">
+            <span class="lks-tab-num">03</span>
+            <span class="lks-tab-body"><span class="lks-tab-title">Web Prospector</span><span class="lks-tab-desc">B2B lead finder</span></span>
+          </button>
+          <button class="lks-tab" type="button" role="tab" id="lks-tab-roblox" aria-controls="lks-panel-roblox" aria-selected="false" tabindex="-1">
+            <span class="lks-tab-num">04</span>
+            <span class="lks-tab-body"><span class="lks-tab-title">Roblox Studio</span><span class="lks-tab-desc">Game portfolio</span></span>
+          </button>
+          <div class="lks-tabs-foot">Engine online · 4 modules</div>
+        </div>
+
+        <div class="lks-panels">
+
+          <!-- ---------- 01 · Custom Requests ---------- -->
+          <div class="lks-panel" role="tabpanel" id="lks-panel-requests" aria-labelledby="lks-tab-requests" tabindex="0">
+            <div class="lks-panel-head">
+              <div>
+                <div class="lks-kicker">01 · Custom Requests</div>
+                <h3>Tell us what to build.</h3>
+                <p>Trading bots, automations, business websites — describe it and we'll come back with a scoped plan and a fixed quote.</p>
+              </div>
+              <span class="demo-tag">Now booking projects</span>
+            </div>
+
+            <form class="project-form" id="lks-request-form">
+              <div class="form-row">
+                <div class="field">
+                  <label for="lks-f-name">Full name</label>
+                  <input id="lks-f-name" name="fullName" type="text" required autocomplete="name">
+                </div>
+                <div class="field">
+                  <label for="lks-f-email">Email</label>
+                  <input id="lks-f-email" name="email" type="email" required autocomplete="email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="lks-f-category">Project category</label>
+                  <select id="lks-f-category" name="projectCategory" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="Trading Bot">Trading Bot</option>
+                    <option value="Custom Automations">Custom Automations</option>
+                    <option value="Business Website">Business Website</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="lks-f-budget">Budget</label>
+                  <select id="lks-f-budget" name="budget" required>
+                    <option value="" disabled selected>Select a range</option>
+                    <option value="Under $500">Under $500</option>
+                    <option value="$500 – $1,500">$500 – $1,500</option>
+                    <option value="$1,500 – $5,000">$1,500 – $5,000</option>
+                    <option value="$5,000+">$5,000+</option>
+                    <option value="Not sure yet">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="lks-f-req">Detailed requirements</label>
+                <textarea id="lks-f-req" name="requirements" rows="6" required placeholder="What should it do, who uses it, and what does success look like?"></textarea>
+              </div>
+              <div class="form-foot">
+                <button class="btn btn-primary" type="submit" id="lks-request-submit">Send Request</button>
+                <span class="form-status" id="lks-request-status" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+
+          <!-- ---------- 02 · PC Parts Advisor ---------- -->
+          <div class="lks-panel" role="tabpanel" id="lks-panel-pc" aria-labelledby="lks-tab-pc" tabindex="0" hidden>
+            <div class="lks-panel-head">
+              <div>
+                <div class="lks-kicker">02 · PC Parts Advisor</div>
+                <h3>Find your ideal build in three answers.</h3>
+                <p>Pick a budget, a use case and a form factor — we'll match you to a balanced, bottleneck-free spec.</p>
+              </div>
+            </div>
+
+            <form id="lks-wizard" novalidate>
+              <ol class="lks-progress" aria-hidden="true">
+                <li class="is-active">Budget</li>
+                <li>Use case</li>
+                <li>Device</li>
+              </ol>
+
+              <fieldset class="lks-step" data-lks-step="0">
+                <legend tabindex="-1">What's your budget?</legend>
+                <p class="lks-step-hint">Total for the machine itself — monitor and peripherals not included.</p>
+                <div class="lks-options">
+                  <label class="lks-option"><input type="radio" name="budget" value="u800"><span class="lks-option-body"><span class="lks-option-title">Under $800</span><span class="lks-option-desc">Smart entry-level. 1080p gaming or everyday work.</span></span></label>
+                  <label class="lks-option"><input type="radio" name="budget" value="800-1500"><span class="lks-option-body"><span class="lks-option-title">$800 – $1,500</span><span class="lks-option-desc">The sweet spot for price-to-performance.</span></span></label>
+                  <label class="lks-option"><input type="radio" name="budget" value="1500-2500"><span class="lks-option-body"><span class="lks-option-title">$1,500 – $2,500</span><span class="lks-option-desc">High-refresh 1440p and serious workloads.</span></span></label>
+                  <label class="lks-option"><input type="radio" name="budget" value="2500p"><span class="lks-option-body"><span class="lks-option-title">$2,500+</span><span class="lks-option-desc">Flagship parts, 4K and no compromises.</span></span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="lks-step" data-lks-step="1" hidden>
+                <legend tabindex="-1">What will you mainly use it for?</legend>
+                <p class="lks-step-hint">This decides where the budget goes — graphics card, cores or memory.</p>
+                <div class="lks-options">
+                  <label class="lks-option"><input type="radio" name="use" value="gaming"><span class="lks-option-body"><span class="lks-option-title">Gaming</span><span class="lks-option-desc">High frame rates, fast refresh, GPU-first.</span></span></label>
+                  <label class="lks-option"><input type="radio" name="use" value="work"><span class="lks-option-body"><span class="lks-option-title">Work</span><span class="lks-option-desc">Coding, office, editing — more cores and RAM.</span></span></label>
+                  <label class="lks-option"><input type="radio" name="use" value="hybrid"><span class="lks-option-body"><span class="lks-option-title">Hybrid</span><span class="lks-option-desc">Work by day, play by night. Balanced.</span></span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="lks-step" data-lks-step="2" hidden>
+                <legend tabindex="-1">Desktop or laptop?</legend>
+                <p class="lks-step-hint">Desktops give more performance per dollar; laptops go where you go.</p>
+                <div class="lks-options">
+                  <label class="lks-option"><input type="radio" name="device" value="desktop"><span class="lks-option-body"><span class="lks-option-title">Desktop</span><span class="lks-option-desc">Max performance, quiet cooling, easy upgrades.</span></span></label>
+                  <label class="lks-option"><input type="radio" name="device" value="laptop"><span class="lks-option-body"><span class="lks-option-title">Laptop</span><span class="lks-option-desc">Portable power with a built-in screen.</span></span></label>
+                </div>
+              </fieldset>
+
+              <div class="lks-wizard-nav">
+                <button class="btn btn-ghost" type="button" data-lks-back hidden>&larr; Back</button>
+                <span class="lks-wizard-count" aria-live="polite">Step 1 of 3</span>
+                <span class="lks-spacer"></span>
+                <button class="btn btn-primary" type="button" data-lks-next disabled>Next &rarr;</button>
+                <button class="btn btn-primary" type="submit" data-lks-finish disabled hidden>Generate spec sheet</button>
+              </div>
+            </form>
+
+            <div id="lks-build-result" hidden aria-live="polite"></div>
+          </div>
+
+          <!-- ---------- 03 · Web Prospector ---------- -->
+          <div class="lks-panel" role="tabpanel" id="lks-panel-prospector" aria-labelledby="lks-tab-prospector" tabindex="0" hidden>
+            <div class="lks-panel-head">
+              <div>
+                <div class="lks-kicker">03 · Web Prospector</div>
+                <h3>Local businesses with no website.</h3>
+                <p>Scan a city or niche for well-reviewed businesses that customers can find on Google Maps — but can't find online.</p>
+              </div>
+              <span class="demo-tag">Mockup — sample data</span>
+            </div>
+
+            <form class="lks-search" id="lks-prospect-form" role="search" novalidate>
+              <div class="field">
+                <label for="lks-prospect-q">Enter Target City/Niche</label>
+                <input id="lks-prospect-q" name="target" type="text" placeholder="e.g. Plumbers in Brighton" autocomplete="off">
+              </div>
+              <button class="btn btn-primary" type="submit">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="4.8" stroke="currentColor" stroke-width="1.5"/><path d="M9.6 9.6L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                Search leads
+              </button>
+            </form>
+
+            <div class="lks-results-meta">
+              <span id="lks-prospect-meta" aria-live="polite">Showing <b>3 leads</b> · Sample market</span>
+              <span class="lks-stats"><span><b>3</b> without a website</span><span><b>2</b> verified listings</span></span>
+            </div>
+
+            <div class="lks-table-wrap" id="lks-prospect-table">
+              <div class="lks-scanbar" aria-hidden="true"></div>
+              <table class="lks-table">
+                <thead>
+                  <tr><th scope="col">Business Name</th><th scope="col">Industry</th><th scope="col">Google Maps Status</th><th scope="col">Website Status</th><th scope="col"><span class="lks-sr-only">Action</span></th></tr>
+                </thead>
+                <tbody>
+                  <tr data-name="Harbourline Plumbing &amp; Heating" data-industry="Home Services" data-rating="4.8" data-reviews="212">
+                    <td data-label="Business"><span class="lks-biz-name">Harbourline Plumbing &amp; Heating</span><span class="lks-biz-loc">Sample market</span></td>
+                    <td data-label="Industry">Home Services</td>
+                    <td data-label="Google Maps"><span class="lks-maps"><span class="lks-pill lks-pill--ok">Verified</span><small>4.8★ · 212 reviews</small></span></td>
+                    <td data-label="Website"><span class="lks-pill lks-pill--danger">Missing</span></td>
+                    <td><button class="btn btn-ghost lks-btn-sm" type="button" data-lks-preview>Generate Website Preview</button></td>
+                  </tr>
+                  <tr data-name="Bloom &amp; Birch Florist" data-industry="Retail · Florist" data-rating="4.6" data-reviews="87">
+                    <td data-label="Business"><span class="lks-biz-name">Bloom &amp; Birch Florist</span><span class="lks-biz-loc">Sample market</span></td>
+                    <td data-label="Industry">Retail · Florist</td>
+                    <td data-label="Google Maps"><span class="lks-maps"><span class="lks-pill lks-pill--ok">Verified</span><small>4.6★ · 87 reviews</small></span></td>
+                    <td data-label="Website"><span class="lks-pill lks-pill--danger">Missing</span></td>
+                    <td><button class="btn btn-ghost lks-btn-sm" type="button" data-lks-preview>Generate Website Preview</button></td>
+                  </tr>
+                  <tr data-name="Ironside Auto Detailing" data-industry="Automotive" data-rating="4.4" data-reviews="39">
+                    <td data-label="Business"><span class="lks-biz-name">Ironside Auto Detailing</span><span class="lks-biz-loc">Sample market</span></td>
+                    <td data-label="Industry">Automotive</td>
+                    <td data-label="Google Maps"><span class="lks-maps"><span class="lks-pill lks-pill--warn">Unclaimed</span><small>4.4★ · 39 reviews</small></span></td>
+                    <td data-label="Website"><span class="lks-pill lks-pill--danger">Missing</span></td>
+                    <td><button class="btn btn-ghost lks-btn-sm" type="button" data-lks-preview>Generate Website Preview</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- ---------- 04 · Roblox Studio ---------- -->
+          <div class="lks-panel" role="tabpanel" id="lks-panel-roblox" aria-labelledby="lks-tab-roblox" tabindex="0" hidden>
+            <div class="lks-panel-head">
+              <div>
+                <div class="lks-kicker">04 · Roblox Studio</div>
+                <h3>Games we've built on Roblox.</h3>
+                <p>Multiplayer experiences designed, scripted and shipped in-house — from open-world chaos to cosy simulators.</p>
+              </div>
+            </div>
+
+            <div class="lks-games">
+              <article class="lks-game">
+                <div class="lks-game-art lks-game-art--boat" aria-hidden="true">
+                  <span class="lks-game-num">G—01</span>
+                  <svg viewBox="0 0 64 48" fill="none"><path d="M32 4V30M32 6L48 26H32" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M29 10L18 26H29" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 32H56L50 40H14L8 32Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 45C9 42 13 42 18 45C23 48 27 48 32 45C37 42 41 42 46 45C51 48 55 48 60 45" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div class="lks-game-body">
+                  <span class="lks-pill lks-pill--plain">Massive Multiplayer Open World</span>
+                  <h3>Steal a Boat</h3>
+                  <p>Sneak into rival harbours, hot-wire their fleet and race it back to your dock before the crew catches on. One huge shared ocean, built for chaos with friends.</p>
+                  <!-- TODO: replace with the game's Roblox URL -->
+                  <a class="lks-game-link" href="https://www.roblox.com/" target="_blank" rel="noopener">Play on Roblox &nearr;</a>
+                </div>
+              </article>
+
+              <article class="lks-game">
+                <div class="lks-game-art lks-game-art--treasure" aria-hidden="true">
+                  <span class="lks-game-num">G—02</span>
+                  <svg viewBox="0 0 64 48" fill="none"><path d="M10 20C10 11 20 6 32 6C44 6 54 11 54 20V22H10V20Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="10" y="22" width="44" height="22" rx="2" stroke="currentColor" stroke-width="2"/><path d="M22 7.5V44M42 7.5V44" stroke="currentColor" stroke-width="2"/><rect x="28" y="18" width="8" height="10" rx="1.5" stroke="currentColor" stroke-width="2"/><path d="M32 22V25" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div class="lks-game-body">
+                  <span class="lks-pill lks-pill--plain">Strategy / Adventure</span>
+                  <h3>Steal a Treasure</h3>
+                  <p>Scout the route, pick your crew and outsmart the guards to crack each vault. Every heist rewards a good plan over button-mashing.</p>
+                  <!-- TODO: replace with the game's Roblox URL -->
+                  <a class="lks-game-link" href="https://www.roblox.com/" target="_blank" rel="noopener">Play on Roblox &nearr;</a>
+                </div>
+              </article>
+
+              <article class="lks-game">
+                <div class="lks-game-art lks-game-art--blob" aria-hidden="true">
+                  <span class="lks-game-num">G—03</span>
+                  <svg viewBox="0 0 64 48" fill="none"><path d="M12 38C6 38 5 30 9 25C11 14 20 8 32 8C45 8 54 15 55 26C59 30 58 38 51 38H12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="25" cy="23" r="3" fill="currentColor"/><circle cx="39" cy="23" r="3" fill="currentColor"/><path d="M27 30C30 33 34 33 37 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="58" cy="10" r="3" stroke="currentColor" stroke-width="2"/><circle cx="50" cy="4" r="1.6" fill="currentColor"/></svg>
+                </div>
+                <div class="lks-game-body">
+                  <span class="lks-pill lks-pill--plain">Casual / Simulator</span>
+                  <h3>Feed a Blob</h3>
+                  <p>Keep your blob fed, watch it grow and unlock ever-stranger mutations. A relaxed simulator you can dip in and out of any time.</p>
+                  <!-- TODO: replace with the game's Roblox URL -->
+                  <a class="lks-game-link" href="https://www.roblox.com/" target="_blank" rel="noopener">Play on Roblox &nearr;</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Shared modal. Kept outside the .reveal wrappers: their transform would
+         otherwise trap position:fixed inside the section. -->
+    <div class="lks-overlay" id="lks-overlay" hidden>
+      <div class="lks-modal" role="dialog" aria-modal="true" aria-labelledby="lks-modal-title">
+        <button class="lks-modal-x" type="button" data-lks-close aria-label="Close">
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <div class="lks-modal-body"></div>
+      </div>
+    </div>
+  </section>
+  <!-- ================= /LKSystems Product Engine ================= -->
+
   <section class="cta-section" id="start">
     <div class="wrap">
       <div class="cta-grid">
@@ -495,6 +780,7 @@
         <a href="#services">Services</a>
         <a href="#how">How it works</a>
         <a href="#example">Example</a>
+        <a href="#products">Products</a>
         <a href="#about">About</a>
         <a href="mailto:lkeijer2@gmail.com">Email</a>
       </div>
@@ -639,5 +925,6 @@
   });
 })();
 </script>
+<script src="assets/lks-engine.js" defer></script>
 </body>
 </html>
