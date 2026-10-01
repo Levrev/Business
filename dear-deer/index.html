@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dear Deer Milk Tea &mdash; Bubble Tea &amp; Snacks, Varsity Lakes</title>
+<meta name="description" content="Fresh-brewed milk tea, fruit tea, sparkling drinks and mochi at Varsity Lakes. Build your drink, order ahead, or book a group order.">
+<meta name="theme-color" content="#ffd9e2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+  :root{
+    --milk:#fff8f2;
+    --blush:#ffd9e2;
+    --pink:#ff7b9c;
+    --sugar:#6a3d2a;
+    --sugar-2:#8c5a40;
+    --matcha:#d4ecc9;
+    --taro:#d9c8f5;
+    --peach:#ffe0c2;
+    --ink:#3b2a22;
+    --muted:#85705f;
+    --line:rgba(106,61,42,.16);
+    --display:"Baloo 2","Nunito","Trebuchet MS",system-ui,sans-serif;
+    --body:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --bar-h:72px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;}
+  body{margin:0;background:var(--milk);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom,0px));}
+  svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:var(--display);margin:0;line-height:1.08;color:var(--sugar);}
+  p{margin:0;}
+  .wrap{width:min(1080px,100% - 32px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--sugar);color:#fff;padding:8px 14px;border-radius:10px;z-index:100;}
+  .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--pink);outline-offset:3px;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border:0;background:var(--sugar);color:#fff;padding:0 24px;border-radius:999px;font:800 1rem var(--body);cursor:pointer;transition:transform .15s,background .15s;box-shadow:0 8px 18px -10px rgba(106,61,42,.7);}
+  .btn:active{transform:scale(.97);}
+  .btn.pink{background:var(--pink);box-shadow:0 8px 18px -10px rgba(255,123,156,.9);}
+  .btn.soft{background:#fff;color:var(--sugar);box-shadow:inset 0 0 0 2px var(--line);}
+  .btn.sm{min-height:40px;padding:0 18px;font-size:.9rem;}
+
+  /* header */
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(255,248,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px;}
+  .brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:1.35rem;color:var(--sugar);}
+  .brand svg{width:34px;height:34px;}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:26px;font-weight:700;}
+  .nav ul a:hover{color:var(--pink);}
+  @media(min-width:820px){.nav ul{display:flex;}}
+
+  /* hero */
+  .hero{padding:26px 0 44px;background:linear-gradient(180deg,var(--blush) 0%,var(--milk) 100%);overflow:hidden;}
+  .hero-grid{display:grid;gap:18px;align-items:center;text-align:center;}
+  @media(min-width:860px){.hero{padding:64px 0 76px;}.hero-grid{grid-template-columns:1.1fr .9fr;text-align:left;gap:50px;}}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:6px 14px;font-weight:800;font-size:.82rem;color:var(--sugar);box-shadow:0 6px 14px -8px rgba(106,61,42,.5);}
+  .pill b{color:var(--pink);}
+  .hero h1{font-size:clamp(2.5rem,11vw,4.8rem);font-weight:800;margin:14px 0 12px;}
+  .hero h1 em{font-style:normal;color:var(--pink);}
+  .hero .lead{font-size:1.08rem;color:var(--sugar-2);max-width:42ch;margin-inline:auto;}
+  @media(min-width:860px){.hero .lead{margin-inline:0;}}
+  .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;justify-content:center;}
+  @media(min-width:860px){.cta-row{justify-content:flex-start;}}
+  .hero-art{position:relative;width:min(190px,48vw);justify-self:center;order:-1;}
+  @media(min-width:860px){.hero-art{order:0;width:min(400px,100%);}}
+  .cup{filter:drop-shadow(0 22px 22px rgba(106,61,42,.22));animation:float 5s ease-in-out infinite;}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+  .dot{position:absolute;border-radius:50%;background:var(--sugar);opacity:.9;}
+  .rating{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-top:20px;font-size:.88rem;font-weight:700;color:var(--sugar-2);}
+  @media(min-width:860px){.rating{justify-content:flex-start;}}
+
+  section{padding:56px 0;}
+  .sec-head{text-align:center;margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(1.9rem,7vw,3rem);font-weight:800;}
+  .sec-head p{color:var(--muted);margin-top:8px;}
+
+  /* menu */
+  .chips{display:flex;gap:10px;overflow-x:auto;padding:4px 16px 14px;margin:0 -16px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  @media(min-width:700px){.chips{justify-content:center;margin:0 0 8px;padding-inline:0;}}
+  .chip{flex:none;scroll-snap-align:start;border:0;border-radius:999px;padding:11px 20px;background:#fff;color:var(--sugar);font:800 .95rem var(--body);cursor:pointer;box-shadow:inset 0 0 0 2px var(--line);min-height:44px;}
+  .chip[aria-pressed="true"]{background:var(--sugar);color:#fff;box-shadow:none;}
+  .drinks{display:grid;gap:12px;grid-template-columns:1fr;}
+  @media(min-width:640px){.drinks{grid-template-columns:1fr 1fr;gap:16px;}}
+  @media(min-width:980px){.drinks{grid-template-columns:repeat(3,1fr);}}
+  .drink{display:flex;gap:14px;align-items:center;background:#fff;border-radius:22px;padding:14px;box-shadow:0 10px 24px -18px rgba(106,61,42,.6);border:1px solid var(--line);}
+  .drink[hidden]{display:none;}
+  .swatch{flex:none;width:64px;height:78px;border-radius:14px;display:grid;place-items:center;}
+  .swatch svg{width:36px;height:56px;}
+  .drink h3{font-size:1.12rem;}
+  .drink p{font-size:.84rem;color:var(--muted);line-height:1.35;margin-top:2px;}
+  .drink .price{margin-left:auto;font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--sugar);}
+  .tag{display:inline-block;margin-left:6px;vertical-align:middle;background:var(--blush);color:var(--sugar);font:800 .62rem var(--body);letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;}
+  .menu-note{text-align:center;margin-top:20px;font-size:.82rem;color:var(--muted);}
+
+  /* builder */
+  .builder-sec{background:var(--peach);border-radius:36px 36px 0 0;}
+  .builder{display:grid;gap:18px;}
+  @media(min-width:900px){.builder{grid-template-columns:1.3fr .7fr;gap:28px;align-items:start;}}
+  .panel{background:#fff;border-radius:26px;padding:20px;box-shadow:0 14px 30px -22px rgba(106,61,42,.7);}
+  .panel h3{font-size:1.1rem;margin:0 0 10px;}
+  .panel + .panel{margin-top:14px;}
+  .opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .opt{position:relative;}
+  .opt input{position:absolute;opacity:0;inset:0;}
+  .opt span{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;background:var(--milk);box-shadow:inset 0 0 0 2px var(--line);font-weight:800;font-size:.92rem;color:var(--sugar);cursor:pointer;}
+  .opt input:checked + span{background:var(--sugar);color:#fff;box-shadow:none;}
+  .opt input:focus-visible + span{outline:3px solid var(--pink);outline-offset:2px;}
+  .summary{position:sticky;top:76px;background:var(--sugar);color:#fff;border-radius:26px;padding:22px;}
+  .summary h3{color:#fff;font-size:1.05rem;opacity:.85;}
+  .summary .name{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:1.15;margin:6px 0;}
+  .summary ul{list-style:none;margin:10px 0 14px;padding:0;font-size:.92rem;display:grid;gap:4px;opacity:.95;}
+  .summary .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.25);padding-top:12px;margin-bottom:14px;}
+  .summary .total b{font-family:var(--display);font-size:2rem;}
+
+  /* enquiry */
+  .enq{display:grid;gap:22px;}
+  @media(min-width:900px){.enq{grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start;}}
+  .enq h2{font-size:clamp(1.9rem,7vw,2.9rem);margin-bottom:10px;}
+  .enq .copy p{color:var(--sugar-2);}
+  .enq ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;font-weight:700;color:var(--sugar);}
+  .enq li::before{content:"\1F9CB";margin-right:8px;}
+  form.card{background:#fff;border-radius:28px;padding:22px;display:grid;gap:14px;box-shadow:0 20px 40px -26px rgba(106,61,42,.7);}
+  .row{display:grid;gap:14px;}
+  @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.86rem;font-weight:800;color:var(--sugar);}
+  input,select,textarea{font:600 1rem var(--body);padding:14px;border:2px solid var(--line);border-radius:16px;background:var(--milk);color:var(--ink);width:100%;min-height:50px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,123,156,.22);}
+  textarea{min-height:110px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-weight:800;font-size:.92rem;}
+  .form-note.ok{color:#1c7a3d;}
+  .form-note.err{color:#c23a58;}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:600;}
+
+  /* visit */
+  .visit{display:grid;gap:18px;}
+  @media(min-width:820px){.visit{grid-template-columns:1fr 1fr;gap:26px;}}
+  .card-info{background:#fff;border-radius:26px;padding:24px;border:1px solid var(--line);}
+  .card-info h3{font-size:1.4rem;margin-bottom:10px;}
+  address{font-style:normal;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+
+  footer{background:var(--sugar);color:#f3dfd3;padding:36px 0 28px;font-size:.92rem;}
+  .foot{display:grid;gap:20px;}
+  @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:#fff;margin-bottom:8px;}
+  footer h4{margin:0 0 8px;color:var(--blush);font:800 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase;}
+  footer a:hover{color:#fff;}
+  .disclaimer{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.18);font-size:.72rem;color:#d8bfae;}
+
+  /* sticky mobile action bar */
+  .action-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,248,242,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);}
+  .action-bar a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:50px;border-radius:999px;font-weight:800;font-size:.95rem;}
+  .action-bar .primary{background:var(--pink);color:#fff;box-shadow:0 8px 16px -10px rgba(255,123,156,.95);}
+  .action-bar .sec{background:#fff;color:var(--sugar);box-shadow:inset 0 0 0 2px var(--line);}
+  @media(min-width:860px){.action-bar{display:none;}body{padding-bottom:0;}}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cup{animation:none}.reveal{opacity:1;transform:none;transition:none;}.btn{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Dear Deer home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="22" r="11" fill="#ffd9e2"/><path d="M12 14c-3-1-5-4-5-8m5 8c-1-3-4-4-6-4M28 14c3-1 5-4 5-8m-5 8c1-3 4-4 6-4" stroke="#6a3d2a" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="16" cy="22" r="1.7" fill="#6a3d2a"/><circle cx="24" cy="22" r="1.7" fill="#6a3d2a"/><ellipse cx="20" cy="27" rx="2.6" ry="1.9" fill="#ff7b9c"/></svg>
+      Dear Deer
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#build">Build a drink</a></li>
+        <li><a href="#group">Group orders</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+    <a class="btn pink sm" href="#build">Build yours</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="pill"><b>&#9733; 4.8</b> 1,000+ ratings on Uber Eats</span>
+        <h1>Sip something <em>sweet.</em></h1>
+        <p class="lead">Fresh-brewed milk tea, fruity green teas and chewy mochi at Varsity Lakes &mdash; made your way, every time.</p>
+        <div class="cta-row">
+          <a class="btn pink" href="#build">Build your drink</a>
+          <a class="btn soft" href="#menu">See the menu</a>
+        </div>
+        <div class="rating"><span>&#128205; Varsity Lakes</span><span>&#129483; Milk tea &amp; snack bar</span><span>&#128717; Pickup &amp; delivery</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="dot" style="width:14px;height:14px;left:8%;top:14%"></span>
+        <span class="dot" style="width:10px;height:10px;right:6%;top:30%"></span>
+        <span class="dot" style="width:12px;height:12px;left:2%;bottom:24%"></span>
+        <svg class="cup" viewBox="0 0 240 320">
+          <path d="M120 6c0 18 8 26 22 30" stroke="#ff7b9c" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <path d="M142 6l-8 70" stroke="#ff7b9c" stroke-width="10" stroke-linecap="round" opacity="0"/>
+          <rect x="108" y="14" width="12" height="96" rx="6" fill="#ff7b9c" transform="rotate(8 114 60)"/>
+          <path d="M30 70h180l-18 224a22 22 0 0 1-22 20H70a22 22 0 0 1-22-20z" fill="#fff" stroke="#6a3d2a" stroke-width="6" stroke-linejoin="round"/>
+          <path d="M44 120h152l-13 174a16 16 0 0 1-16 14H73a16 16 0 0 1-16-14z" fill="#d9a77c"/>
+          <path d="M50 190h140l-8 104a16 16 0 0 1-16 14H74a16 16 0 0 1-16-14z" fill="#8c5a40"/>
+          <g fill="#3b2a22"><circle cx="86" cy="280" r="11"/><circle cx="118" cy="288" r="11"/><circle cx="152" cy="280" r="11"/><circle cx="102" cy="258" r="11"/><circle cx="136" cy="256" r="11"/><circle cx="120" cy="232" r="11"/></g>
+          <rect x="24" y="52" width="192" height="26" rx="13" fill="#ffd9e2" stroke="#6a3d2a" stroke-width="6"/>
+          <circle cx="160" cy="150" r="7" fill="#fff" opacity=".7"/><circle cx="92" cy="166" r="5" fill="#fff" opacity=".6"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Menu highlights</h2>
+        <p>Tap a category to filter.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter menu">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="milk" aria-pressed="false">Milk Tea</button>
+        <button class="chip" type="button" data-filter="fruit" aria-pressed="false">Fruit Tea</button>
+        <button class="chip" type="button" data-filter="sparkling" aria-pressed="false">Sparkling</button>
+        <button class="chip" type="button" data-filter="snack" aria-pressed="false">Snacks</button>
+      </div>
+      <div class="drinks" id="drinks">
+        <article class="drink" data-cat="milk"><div class="swatch" style="background:#ecd2b8"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#8c5a40"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/><g fill="#3b2a22"><circle cx="13" cy="44" r="3"/><circle cx="21" cy="45" r="3"/><circle cx="17" cy="39" r="3"/></g></svg></div><div><h3>Brown Sugar Milk Tea <span class="tag">Popular</span></h3><p>Fresh milk, tiger-stripe brown sugar and pearls.</p></div><span class="price">$7.50</span></article>
+        <article class="drink" data-cat="milk"><div class="swatch" style="background:#f3e3cf"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#d9a77c"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/></svg></div><div><h3>Classic Signature Milk Tea</h3><p>Our house-brewed black tea with silky milk.</p></div><span class="price">$7.00</span></article>
+        <article class="drink" data-cat="milk"><div class="swatch" style="background:var(--taro)"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#b394e6"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/></svg></div><div><h3>Taro Milk Tea</h3><p>Creamy, nutty taro with a hint of vanilla.</p></div><span class="price">$7.50</span></article>
+        <article class="drink" data-cat="fruit"><div class="swatch" style="background:#ffe7a8"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#ffb627"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/></svg></div><div><h3>Passion Fruit Green Tea</h3><p>Bright, tangy and refreshing over ice.</p></div><span class="price">$7.00</span></article>
+        <article class="drink" data-cat="fruit"><div class="swatch" style="background:#ffd9a0"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#ff9d2e"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/></svg></div><div><h3>Mango Green Tea</h3><p>Sweet mango pulp with jasmine green tea.</p></div><span class="price">$7.00</span></article>
+        <article class="drink" data-cat="fruit"><div class="swatch" style="background:var(--matcha)"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#9ccf86"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/></svg></div><div><h3>Apple Green Tea <span class="tag">Fresh</span></h3><p>Crisp apple, light green tea, super refreshing.</p></div><span class="price">$7.00</span></article>
+        <article class="drink" data-cat="sparkling"><div class="swatch" style="background:#ffd9e2"><svg viewBox="0 0 36 56" aria-hidden="true"><path d="M3 6h30l-3 42a4 4 0 0 1-4 3H10a4 4 0 0 1-4-3z" fill="#ff9fb8"/><path d="M3 6h30" stroke="#6a3d2a" stroke-width="3"/><g fill="#fff" opacity=".8"><circle cx="14" cy="22" r="2"/><circle cx="22" cy="30" r="2"/><circle cx="16" cy="38" r="2"/></g></svg></div><div><h3>Lychee Sparkling</h3><p>Lychee, soda and a squeeze of lime. Fizzy and floral.</p></div><span class="price">$7.50</span></article>
+        <article class="drink" data-cat="snack"><div class="swatch" style="background:#fdeede"><svg viewBox="0 0 36 56" aria-hidden="true"><circle cx="18" cy="28" r="14" fill="#fff" stroke="#6a3d2a" stroke-width="3"/><circle cx="18" cy="28" r="6" fill="#ffd9e2"/></svg></div><div><h3>Mochi Cup</h3><p>Soft, chewy mochi pieces with sweet kinako.</p></div><span class="price">$6.50</span></article>
+      </div>
+      <p class="menu-note">Sample menu and pricing shown for illustration &mdash; to be replaced with Dear Deer&rsquo;s real menu.</p>
+    </div>
+  </section>
+
+  <!-- BUILDER -->
+  <section class="builder-sec" id="build">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Build your drink</h2>
+        <p>Pick it. Sweeten it. Send it to the counter.</p>
+      </div>
+      <div class="builder">
+        <div class="controls">
+          <div class="panel"><h3>1 &middot; Base</h3>
+            <div class="opts" data-group="base">
+              <label class="opt"><input type="radio" name="base" value="Classic Signature Milk Tea|7.00" checked><span>Classic Milk Tea</span></label>
+              <label class="opt"><input type="radio" name="base" value="Brown Sugar Milk Tea|7.50"><span>Brown Sugar</span></label>
+              <label class="opt"><input type="radio" name="base" value="Taro Milk Tea|7.50"><span>Taro</span></label>
+              <label class="opt"><input type="radio" name="base" value="Passion Fruit Green Tea|7.00"><span>Passion Fruit</span></label>
+              <label class="opt"><input type="radio" name="base" value="Mango Green Tea|7.00"><span>Mango</span></label>
+              <label class="opt"><input type="radio" name="base" value="Apple Green Tea|7.00"><span>Apple</span></label>
+            </div>
+          </div>
+          <div class="panel"><h3>2 &middot; Sweetness</h3>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="sugar" value="0%"><span>0%</span></label>
+              <label class="opt"><input type="radio" name="sugar" value="30%"><span>30%</span></label>
+              <label class="opt"><input type="radio" name="sugar" value="50%" checked><span>50%</span></label>
+              <label class="opt"><input type="radio" name="sugar" value="70%"><span>70%</span></label>
+              <label class="opt"><input type="radio" name="sugar" value="100%"><span>100%</span></label>
+            </div>
+          </div>
+          <div class="panel"><h3>3 &middot; Ice</h3>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="ice" value="Regular ice" checked><span>Regular</span></label>
+              <label class="opt"><input type="radio" name="ice" value="Less ice"><span>Less</span></label>
+              <label class="opt"><input type="radio" name="ice" value="No ice"><span>None</span></label>
+            </div>
+          </div>
+          <div class="panel"><h3>4 &middot; Toppings <span class="fine">+$1 each</span></h3>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" name="top" value="Pearls"><span>Pearls</span></label>
+              <label class="opt"><input type="checkbox" name="top" value="Mochi"><span>Mochi</span></label>
+              <label class="opt"><input type="checkbox" name="top" value="Pudding"><span>Pudding</span></label>
+              <label class="opt"><input type="checkbox" name="top" value="Aloe jelly"><span>Aloe jelly</span></label>
+            </div>
+          </div>
+        </div>
+        <aside class="summary" aria-live="polite">
+          <h3>Your drink</h3>
+          <div class="name" id="s-name">Classic Signature Milk Tea</div>
+          <ul id="s-list"></ul>
+          <div class="total"><span>Total</span><b id="s-total">$7.00</b></div>
+          <a class="btn pink" href="#group" id="use-drink" style="width:100%">Add to my order</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY -->
+  <section id="group">
+    <div class="wrap enq">
+      <div class="copy reveal">
+        <h2>Order ahead or feed a crowd</h2>
+        <p>Office run, birthday, uni study group? Send us your order or group enquiry and we&rsquo;ll have it ready.</p>
+        <ul>
+          <li>Pickup orders ready when you arrive</li>
+          <li>Group &amp; party trays on request</li>
+          <li>Tell us your drinks &mdash; we&rsquo;ll confirm by SMS</li>
+        </ul>
+      </div>
+      <form class="card reveal" id="inquiry" name="dear-deer-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="dear-deer-order">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="row two">
+          <label>Name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label>
+          <label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx"></label>
+        </div>
+        <div class="row two">
+          <label>Order type
+            <select name="type" required><option>Pickup order</option><option>Group / party order</option><option>Event enquiry</option></select>
+          </label>
+          <label>Pickup time<input name="time" type="time" min="11:00" max="19:00"></label>
+        </div>
+        <label>Drinks &amp; details<textarea name="order" id="order-text" required placeholder="Use &lsquo;Build your drink&rsquo; above, or type your order here"></textarea></label>
+        <button class="btn pink" type="submit">Send order</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm by SMS before pickup.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit" style="padding-top:0">
+    <div class="wrap visit">
+      <div class="card-info reveal">
+        <h3>Find us</h3>
+        <address><strong>Dear Deer Milk Tea</strong><br>A8/201 Varsity Parade<br>Varsity Lakes QLD 4227</address>
+        <div class="links">
+          <a class="btn soft sm" href="https://www.google.com/maps/search/?api=1&amp;query=Dear+Deer+Milk+Tea+201+Varsity+Parade+Varsity+Lakes" target="_blank" rel="noopener">Directions</a>
+          <a class="btn soft sm" href="tel:0755625740">(07) 5562 5740</a>
+        </div>
+      </div>
+      <div class="card-info reveal">
+        <h3>Hours &amp; socials</h3>
+        <p>Usually <strong>11am &ndash; 7pm</strong>. Check our Facebook for today&rsquo;s hours and specials.</p>
+        <div class="links">
+          <a class="btn soft sm" href="https://fb.me/DearDeerGC" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn soft sm" href="https://www.instagram.com/deardeergc/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="#top">Dear Deer</a><p>Milk tea &amp; snack bar &middot; Varsity Lakes, Gold Coast.</p></div>
+      <div><h4>Visit</h4><address>A8/201 Varsity Parade<br>Varsity Lakes QLD 4227</address></div>
+      <div><h4>Contact</h4><a href="tel:0755625740">(07) 5562 5740</a><br><a href="https://fb.me/DearDeerGC" target="_blank" rel="noopener">Facebook</a> &middot; <a href="https://www.instagram.com/deardeergc/" target="_blank" rel="noopener">Instagram</a></div>
+    </div>
+    <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Quick actions">
+  <a class="primary" href="#build">&#129483; Build &amp; order</a>
+  <a class="sec" href="tel:0755625740">&#128222; Call</a>
+  <a class="sec" href="https://www.google.com/maps/search/?api=1&amp;query=Dear+Deer+Milk+Tea+201+Varsity+Parade+Varsity+Lakes" target="_blank" rel="noopener">&#128205; Map</a>
+</nav>
+
+<script>
+(function(){
+  /* menu filter */
+  var chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('#drinks .drink');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c);});
+    var f=c.getAttribute('data-filter');
+    cards.forEach(function(d){d.hidden=!(f==='all'||d.getAttribute('data-cat')===f);});
+  });});
+
+  /* drink builder */
+  var sName=document.getElementById('s-name'),sList=document.getElementById('s-list'),sTotal=document.getElementById('s-total');
+  var current='';
+  function val(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:'';}
+  function update(){
+    var b=val('base').split('|'),tops=[].map.call(document.querySelectorAll('input[name="top"]:checked'),function(x){return x.value;});
+    var total=parseFloat(b[1])+tops.length;
+    sName.textContent=b[0];
+    sList.innerHTML='';
+    [val('sugar')+' sugar',val('ice')].concat(tops.map(function(t){return '+ '+t;})).forEach(function(t){var li=document.createElement('li');li.textContent=t;sList.appendChild(li);});
+    sTotal.textContent='$'+total.toFixed(2);
+    current='1 x '+b[0]+' ('+val('sugar')+' sugar, '+val('ice').toLowerCase()+(tops.length?', '+tops.join(' + '):'')+') — $'+total.toFixed(2);
+  }
+  document.querySelectorAll('.builder input').forEach(function(i){i.addEventListener('change',update);});
+  update();
+  var order=document.getElementById('order-text');
+  document.getElementById('use-drink').addEventListener('click',function(){
+    order.value=(order.value?order.value.replace(/\s+$/,'')+'\n':'')+current;
+  });
+
+  /* form */
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){if(!r.ok)throw new Error('x');form.reset();note.className='form-note ok';note.textContent='Yay! Your order is in — we’ll text you to confirm.';})
+      .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+      .then(function(){btn.disabled=false;});
+  });
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.1});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>

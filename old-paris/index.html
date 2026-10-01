@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Old Paris Caf&eacute; &mdash; Cr&ecirc;pes, Croissants &amp; Baguettes, Varsity Lakes</title>
+<meta name="description" content="Family-run French caf&eacute; in Varsity Lakes: sweet and savoury cr&ecirc;pes, handmade almond croissants, baguettes and good coffee. Open from 5:30am on weekdays.">
+<meta name="theme-color" content="#1d2a44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500;1,700&display=swap">
+<style>
+  :root{
+    --cream:#f7f0e3;
+    --cream-2:#efe4cf;
+    --navy:#1d2a44;
+    --navy-2:#2b3b5e;
+    --awning:#b8322a;
+    --butter:#f1d38a;
+    --terracotta:#c46a3f;
+    --ink:#2a2420;
+    --muted:#6f655b;
+    --line:rgba(29,42,68,.16);
+    --display:"Playfair Display","Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --body:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--body);font-size:1.02rem;line-height:1.65;-webkit-font-smoothing:antialiased;}
+  svg,img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:var(--display);margin:0;line-height:1.12;color:var(--navy);}
+  p{margin:0;}
+  .wrap{width:min(1100px,100% - 40px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:8px 14px;border-radius:6px;z-index:100;}
+  .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--awning);outline-offset:3px;}
+
+  /* awning */
+  .awning{height:34px;background:repeating-linear-gradient(90deg,var(--awning) 0 44px,var(--cream) 44px 88px);position:relative;}
+  .awning::after{content:"";position:absolute;left:0;right:0;top:100%;height:16px;
+    background:
+      radial-gradient(circle at 22px 0,var(--awning) 22px,transparent 23px) 0 0/88px 16px repeat-x,
+      radial-gradient(circle at 66px 0,var(--cream) 22px,transparent 23px) 0 0/88px 16px repeat-x;
+    filter:drop-shadow(0 3px 2px rgba(0,0,0,.12));}
+
+  /* header */
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(247,240,227,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:14px;}
+  .brand{font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--navy);letter-spacing:.01em;}
+  .brand em{font-style:italic;font-weight:500;color:var(--awning);}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:30px;font-weight:500;font-size:.95rem;}
+  .nav ul a{border-bottom:2px solid transparent;padding-bottom:3px;}
+  .nav ul a:hover{border-color:var(--awning);}
+  @media(min-width:820px){.nav ul{display:flex;}}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:var(--cream);border:2px solid var(--navy);padding:12px 24px;border-radius:999px;font:700 .92rem var(--body);cursor:pointer;transition:background .15s,color .15s,transform .15s;}
+  .btn:hover{background:var(--awning);border-color:var(--awning);transform:translateY(-1px);}
+  .btn.ghost{background:transparent;color:var(--navy);}
+  .btn.ghost:hover{background:var(--navy);color:var(--cream);border-color:var(--navy);}
+  .btn.sm{padding:9px 18px;font-size:.85rem;}
+
+  /* hero */
+  .hero{padding:58px 0 72px;}
+  .hero-grid{display:grid;gap:46px;align-items:center;}
+  @media(min-width:880px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:60px;}}
+  .eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--awning);margin-bottom:16px;}
+  .hero h1{font-size:clamp(2.6rem,6.8vw,4.6rem);font-weight:800;letter-spacing:-.01em;}
+  .hero h1 em{font-weight:500;color:var(--awning);}
+  .hero .lead{margin:20px 0 30px;font-size:1.14rem;color:var(--muted);max-width:46ch;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+  .open-now{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:34px;font-size:.92rem;color:var(--muted);}
+  .open-now b{color:var(--navy);}
+
+  /* chalkboard menu card */
+  .board{position:relative;background:#243044;color:#f4efe4;border-radius:10px;padding:34px 30px 30px;border:10px solid #8a5a35;box-shadow:0 26px 50px -24px rgba(29,42,68,.55),inset 0 0 0 2px rgba(255,255,255,.08);transform:rotate(1.4deg);max-width:460px;justify-self:center;width:100%;}
+  .board h2{color:#f4efe4;font-style:italic;font-weight:500;font-size:1.9rem;text-align:center;}
+  .board .rule{display:flex;align-items:center;gap:10px;justify-content:center;color:var(--butter);margin:6px 0 18px;font-size:.8rem;letter-spacing:.3em;}
+  .board .rule::before,.board .rule::after{content:"";height:1px;width:56px;background:rgba(241,211,138,.55);}
+  .board ul{list-style:none;padding:0;margin:0;display:grid;gap:14px;}
+  .board li{display:flex;align-items:baseline;gap:10px;}
+  .board li b{font-family:var(--display);font-weight:500;font-size:1.12rem;}
+  .board li span{flex:1;border-bottom:1.5px dotted rgba(244,239,228,.4);transform:translateY(-4px);}
+  .board li i{font-style:normal;font-weight:700;color:var(--butter);}
+  .board small{display:block;margin-top:20px;text-align:center;color:#b9c0cf;font-size:.8rem;letter-spacing:.08em;}
+  .croissant{position:absolute;right:-26px;top:-38px;width:92px;transform:rotate(14deg);filter:drop-shadow(0 8px 6px rgba(0,0,0,.25));}
+  @media(max-width:520px){.croissant{right:-8px;width:80px;}}
+
+  /* sections */
+  section{padding:80px 0;}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 46px;}
+  .sec-head h2{font-size:clamp(2rem,4.8vw,3.1rem);font-weight:700;}
+  .sec-head p{margin-top:14px;color:var(--muted);}
+  .band{background:var(--navy);color:#e8e2d4;}
+  .band h2,.band h3{color:var(--cream);}
+  .band .eyebrow{color:var(--butter);}
+
+  /* about */
+  .about{display:grid;gap:44px;align-items:center;}
+  @media(min-width:880px){.about{grid-template-columns:1fr 1fr;gap:70px;}}
+  .about h2{font-size:clamp(2rem,4.4vw,2.9rem);margin-bottom:20px;}
+  .about p+p{margin-top:16px;}
+  .about p{color:#d9d3c5;}
+  .sign{font-family:var(--display);font-style:italic;font-size:1.3rem;color:var(--butter);margin-top:22px;}
+  .values{display:grid;gap:16px;}
+  .value{background:var(--navy-2);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;}
+  .value .ic{flex:none;width:46px;height:46px;border-radius:50%;background:var(--butter);color:var(--navy);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.2rem;}
+  .value h3{font-size:1.15rem;margin-bottom:3px;}
+  .value p{font-size:.92rem;color:#c9c4b6;}
+
+  /* menu */
+  .menu-grid{display:grid;gap:26px;}
+  @media(min-width:860px){.menu-grid{grid-template-columns:1fr 1fr;gap:30px;}}
+  .menu-card{background:#fffaf0;border:1px solid var(--line);border-radius:18px;padding:28px 28px 20px;position:relative;}
+  .menu-card h3{font-size:1.55rem;display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:2px solid var(--navy);margin-bottom:6px;}
+  .menu-card h3 span{font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--awning);}
+  .dish{padding:13px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 16px;}
+  .dish:last-child{border-bottom:none;}
+  .dish b{font-weight:700;color:var(--navy);}
+  .dish .price{font-weight:700;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .dish small{grid-column:1/-1;color:var(--muted);font-size:.88rem;}
+  .star{display:inline-block;margin-left:8px;background:var(--butter);color:var(--navy);font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border-radius:999px;vertical-align:middle;}
+  .menu-note{text-align:center;margin-top:28px;font-size:.84rem;color:var(--muted);}
+
+  /* booking */
+  .book{display:grid;gap:42px;align-items:start;}
+  @media(min-width:900px){.book{grid-template-columns:.85fr 1.15fr;gap:66px;}}
+  .book h2{font-size:clamp(2rem,4.4vw,2.9rem);margin-bottom:16px;}
+  .book p{color:#d9d3c5;}
+  .perks{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px;color:#e8e2d4;}
+  .perks li{display:flex;gap:12px;align-items:flex-start;}
+  .perks li::before{content:"\2726";color:var(--butter);}
+  form.card{background:var(--cream);color:var(--ink);border-radius:22px;padding:30px;display:grid;gap:16px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);}
+  @media(max-width:520px){form.card{padding:20px;}}
+  .row{display:grid;gap:16px;}
+  @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}.row.three{grid-template-columns:1fr 1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.84rem;font-weight:700;color:var(--navy);}
+  input,select,textarea{font:400 1rem var(--body);padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fffdf7;color:var(--ink);width:100%;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--awning);box-shadow:0 0 0 3px rgba(184,50,42,.18);}
+  textarea{min-height:96px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-size:.92rem;font-weight:700;}
+  .form-note.ok{color:#1c7a3d;}
+  .form-note.err{color:var(--awning);}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:400;}
+
+  /* visit */
+  .visit{display:grid;gap:36px;}
+  @media(min-width:860px){.visit{grid-template-columns:1fr 1fr;gap:70px;}}
+  .visit h2{font-size:clamp(2rem,4.4vw,2.8rem);margin-bottom:18px;}
+  address{font-style:normal;font-size:1.08rem;}
+  .hours{width:100%;border-collapse:collapse;}
+  .hours th,.hours td{padding:14px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:500;}
+  .hours td{text-align:right;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;}
+  .hours .closed td{color:var(--awning);}
+  .social{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+
+  footer{background:var(--navy);color:#cfd3dd;padding:46px 0 32px;font-size:.92rem;}
+  .foot{display:grid;gap:26px;}
+  @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:var(--cream);display:inline-block;margin-bottom:10px;}
+  footer h4{margin:0 0 10px;color:var(--butter);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;}
+  footer a:hover{color:#fff;}
+  .disclaimer{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14);font-size:.72rem;color:#97a0b4;}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none;}.btn{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="awning" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Old Paris Caf&eacute; home">Old <em>Paris</em></a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#book">Book &amp; Order</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+    <a class="btn sm" href="#book">Book a table</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Caf&eacute; fran&ccedil;ais &middot; Varsity Lakes</span>
+        <h1>Un petit coin de Paris, <em>right here on the Gold Coast.</em></h1>
+        <p class="lead">Family-run cr&ecirc;pes, handmade almond croissants and fresh baguettes &mdash; served with good coffee and a warm bonjour, from 5:30am on weekdays.</p>
+        <div class="cta-row">
+          <a class="btn" href="#book">Book or order ahead</a>
+          <a class="btn ghost" href="#menu">See the menu</a>
+        </div>
+        <div class="open-now">
+          <span><b>Mon&ndash;Fri</b> 5:30am &ndash; 3pm</span>
+          <span><b>Sat</b> 6am &ndash; 12pm</span>
+          <span><b>Sun</b> Closed</span>
+        </div>
+      </div>
+
+      <aside class="board reveal" aria-label="Today's favourites">
+        <svg class="croissant" viewBox="0 0 120 80" aria-hidden="true">
+          <path d="M8 56C14 28 38 10 60 10s46 18 52 46c-10-6-18-6-26 2-8-8-18-8-26-8s-18 0-26 8c-8-8-16-8-26-2z" fill="#e0a24f"/>
+          <path d="M30 20c4 10 6 22 4 36M48 14c2 12 3 26 1 40M66 14c-2 12-3 26-1 40M84 20c-4 10-6 22-4 36" stroke="#b9762a" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <h2>Aujourd&rsquo;hui</h2>
+        <div class="rule" aria-hidden="true">&#10022;</div>
+        <ul>
+          <li><b>Cr&ecirc;pe citron</b><span></span><i>$9.50</i></li>
+          <li><b>Croissant aux amandes</b><span></span><i>$6.50</i></li>
+          <li><b>Cr&ecirc;pe complète</b><span></span><i>$15.50</i></li>
+          <li><b>Baguette jambon-brie</b><span></span><i>$13.50</i></li>
+          <li><b>Caf&eacute; au lait</b><span></span><i>$5.00</i></li>
+        </ul>
+        <small>FAIT MAISON &middot; FAMILY RUN</small>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="band" id="about">
+    <div class="wrap about">
+      <div class="reveal">
+        <span class="eyebrow">Notre histoire</span>
+        <h2>A family kitchen with a French accent.</h2>
+        <p>Old Paris is a family-run French-style caf&eacute; on Varsity Parade, run by owners Janet and Alex. Everything is about simple, honest food done properly &mdash; sweet and savoury cr&ecirc;pes folded to order, croissants and pastries baked by hand, and baguettes filled generously.</p>
+        <p>Whether you&rsquo;re grabbing a coffee and croissant on the way to work or settling in for a long, lazy cr&ecirc;pe on Saturday morning, you&rsquo;ll be looked after like family.</p>
+        <p class="sign">&mdash; Janet &amp; Alex</p>
+      </div>
+      <div class="values reveal">
+        <div class="value"><span class="ic">1</span><div><h3>Cr&ecirc;pes made to order</h3><p>Sweet and savoury, folded fresh at the pan &mdash; the lemon cr&ecirc;pe is a local favourite.</p></div></div>
+        <div class="value"><span class="ic">2</span><div><h3>Handmade pastries</h3><p>Almond croissants and French pastries made by hand, never frozen-and-reheated.</p></div></div>
+        <div class="value"><span class="ic">3</span><div><h3>Early starts</h3><p>Doors open at 5:30am Monday to Friday for the early crowd.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">La carte</span>
+        <h2>Menu highlights</h2>
+        <p>A small taste of what&rsquo;s coming out of the kitchen &mdash; ask us about daily specials.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card reveal">
+          <h3>Cr&ecirc;pes Sucr&eacute;es <span>Sweet</span></h3>
+          <div class="dish"><b>Lemon &amp; Sugar <span class="star">Favourite</span></b><span class="price">$9.50</span><small>The classic. Fresh lemon, caster sugar, a little butter.</small></div>
+          <div class="dish"><b>Nutella &amp; Banana</b><span class="price">$12.50</span><small>Warm hazelnut spread, sliced banana, icing sugar.</small></div>
+          <div class="dish"><b>Strawberries &amp; Cream</b><span class="price">$13.50</span><small>Fresh strawberries, whipped cream, strawberry coulis.</small></div>
+          <div class="dish"><b>Biscoff Dream</b><span class="price">$13.00</span><small>Biscoff spread, crushed biscuit, vanilla ice cream.</small></div>
+        </article>
+
+        <article class="menu-card reveal">
+          <h3>Cr&ecirc;pes Sal&eacute;es <span>Savoury</span></h3>
+          <div class="dish"><b>La Compl&egrave;te</b><span class="price">$15.50</span><small>Ham, Swiss cheese and a runny egg.</small></div>
+          <div class="dish"><b>Chicken, Avocado &amp; Brie</b><span class="price">$17.00</span><small>Roast chicken, ripe avocado, melted brie, cranberry.</small></div>
+          <div class="dish"><b>Florentine</b><span class="price">$15.00</span><small>Baby spinach, mushrooms, cheese, cream sauce.</small></div>
+          <div class="dish"><b>Smoked Salmon</b><span class="price">$17.50</span><small>Cream cheese, capers, dill, lemon.</small></div>
+        </article>
+
+        <article class="menu-card reveal">
+          <h3>Boulangerie <span>Baked</span></h3>
+          <div class="dish"><b>Almond Croissant <span class="star">Handmade</span></b><span class="price">$6.50</span><small>Flaky, golden, filled with frangipane and flaked almonds.</small></div>
+          <div class="dish"><b>Butter Croissant</b><span class="price">$5.00</span></div>
+          <div class="dish"><b>Ham &amp; Cheese Croissant</b><span class="price">$9.50</span></div>
+          <div class="dish"><b>Baguette Jambon-Brie</b><span class="price">$13.50</span><small>Ham, brie, tomato and Dijon on a fresh baguette.</small></div>
+        </article>
+
+        <article class="menu-card reveal">
+          <h3>Caf&eacute; &amp; Plus <span>Drinks</span></h3>
+          <div class="dish"><b>Flat White / Latte</b><span class="price">$4.80</span></div>
+          <div class="dish"><b>Caf&eacute; au Lait</b><span class="price">$5.00</span></div>
+          <div class="dish"><b>Hot Chocolat</b><span class="price">$5.50</span></div>
+          <div class="dish"><b>A&ccedil;a&iuml; Bowl</b><span class="price">$14.50</span><small>Granola, banana, berries, coconut and honey.</small></div>
+        </article>
+      </div>
+      <p class="menu-note">Sample menu and pricing shown for illustration &mdash; to be replaced with Old Paris&rsquo;s real menu.</p>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="band" id="book">
+    <div class="wrap book">
+      <div class="reveal">
+        <span class="eyebrow">R&eacute;servations</span>
+        <h2>Book a table or order ahead.</h2>
+        <p>Heading in with a group, or want your morning order ready to grab? Send us a quick note and we&rsquo;ll confirm by phone or email.</p>
+        <ul class="perks">
+          <li>Tables for groups, birthdays and brunch catch-ups</li>
+          <li>Pre-order pastries, baguettes and coffee for the office</li>
+          <li>Catering platters for events &mdash; just ask</li>
+        </ul>
+      </div>
+
+      <form class="card reveal" id="inquiry" name="old-paris-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="old-paris-booking">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>I&rsquo;d like to
+          <select name="request-type" required>
+            <option value="Table booking" selected>Book a table</option>
+            <option value="Pre-order">Pre-order for pickup</option>
+            <option value="Catering">Ask about catering</option>
+          </select>
+        </label>
+        <div class="row two">
+          <label>Name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label>
+          <label>Mobile or email<input name="contact" type="text" required autocomplete="tel" placeholder="04xx xxx xxx"></label>
+        </div>
+        <div class="row three">
+          <label>Date<input name="date" id="book-date" type="date" required></label>
+          <label>Time<input name="time" type="time" min="05:30" max="15:00" required></label>
+          <label>Guests
+            <select name="guests" required>
+              <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option>
+            </select>
+          </label>
+        </div>
+        <label>Anything we should know? <span class="fine">(optional)</span><textarea name="message" placeholder="High chair, allergies, pre-order details&hellip;"></textarea></label>
+        <button class="btn" type="submit">Send request</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm your booking personally &mdash; this isn&rsquo;t an automatic reservation.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="wrap visit">
+      <div class="reveal">
+        <span class="eyebrow">Venez nous voir</span>
+        <h2>Find us on Varsity Parade</h2>
+        <address>
+          <strong>Old Paris Caf&eacute;</strong><br>
+          Shop 7, 228 Varsity Parade<br>
+          Varsity Lakes QLD 4227
+        </address>
+        <div class="social">
+          <a class="btn ghost sm" href="https://www.google.com/maps/search/?api=1&amp;query=Old+Paris+Cafe+228+Varsity+Parade+Varsity+Lakes" target="_blank" rel="noopener">Get directions</a>
+          <a class="btn ghost sm" href="https://www.facebook.com/oldparisvarsity/" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <table class="hours">
+          <caption style="position:absolute;left:-9999px">Opening hours</caption>
+          <tbody>
+            <tr><th scope="row">Monday &ndash; Friday</th><td>5:30am &ndash; 3:00pm</td></tr>
+            <tr><th scope="row">Saturday</th><td>6:00am &ndash; 12:00pm</td></tr>
+            <tr class="closed"><th scope="row">Sunday</th><td>Closed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#top">Old <em>Paris</em></a>
+        <p>Family-run French caf&eacute; in Varsity Lakes, Gold Coast.</p>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <address>Shop 7, 228 Varsity Parade<br>Varsity Lakes QLD 4227</address>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <span>Mon&ndash;Fri 5:30am&ndash;3pm<br>Sat 6am&ndash;12pm &middot; Sun closed</span><br>
+        <a href="https://www.facebook.com/oldparisvarsity/" target="_blank" rel="noopener">facebook.com/oldparisvarsity</a>
+      </div>
+    </div>
+    <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var d=document.getElementById('book-date');
+  if(d){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());d.min=t.toISOString().slice(0,10);}
+
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+      fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+        .then(function(r){if(!r.ok)throw new Error('x');form.reset();note.className='form-note ok';note.textContent='Merci! Your request is in — we’ll be in touch to confirm.';})
+        .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+        .then(function(){btn.disabled=false;});
+    });
+  }
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>

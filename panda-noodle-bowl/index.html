@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Panda Noodle Bowl &mdash; Hot Noodles, Fast. Varsity Lakes</title>
+<meta name="description" content="Big, steaming bowls of laksa, pad thai and stir-fried noodles at Varsity Lakes. Order pickup in under a minute.">
+<meta name="theme-color" content="#141414">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+  :root{
+    --black:#141414;
+    --char:#1f1f1f;
+    --white:#ffffff;
+    --off:#f6f4ef;
+    --chilli:#e63a1f;
+    --chilli-d:#c32d15;
+    --noodle:#ffc933;
+    --muted:#6d6a64;
+    --line:rgba(20,20,20,.14);
+    --display:"Anton","Impact","Haettenschweiler","Arial Narrow Bold",sans-serif;
+    --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:110px;}
+  body{margin:0;background:var(--off);color:var(--black);font-family:var(--body);font-size:1rem;line-height:1.55;-webkit-font-smoothing:antialiased;}
+  svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;margin:0;line-height:1;}
+  p{margin:0;}
+  .wrap{width:min(1120px,100% - 32px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--black);color:#fff;padding:8px 14px;z-index:100;}
+  .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--noodle);outline-offset:3px;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border:0;border-radius:12px;background:var(--chilli);color:#fff;font:800 1rem var(--body);letter-spacing:.02em;cursor:pointer;transition:background .15s,transform .15s;}
+  .btn:hover{background:var(--chilli-d);}
+  .btn:active{transform:scale(.98);}
+  .btn.yellow{background:var(--noodle);color:var(--black);}
+  .btn.yellow:hover{background:#ffd75e;}
+  .btn.dark{background:var(--black);}
+  .btn.line{background:transparent;color:var(--black);box-shadow:inset 0 0 0 2px var(--black);}
+  .btn.line:hover{background:var(--black);color:#fff;}
+  .btn.sm{min-height:42px;padding:0 18px;font-size:.9rem;border-radius:10px;}
+  .btn.block{width:100%;}
+
+  /* top ticker + header */
+  .ticker{background:var(--noodle);color:var(--black);font-weight:800;font-size:.84rem;text-align:center;padding:8px 12px;letter-spacing:.02em;}
+  .ticker a{text-decoration:underline;text-underline-offset:3px;}
+  .site-header{position:sticky;top:0;z-index:50;background:var(--black);color:#fff;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.5rem;text-transform:uppercase;letter-spacing:.03em;}
+  .brand{white-space:nowrap;}
+  .brand svg{width:34px;height:34px;flex:none;}
+  .btn{white-space:nowrap;}
+  @media(max-width:420px){.nav{gap:8px;}.brand{font-size:.98rem;gap:7px;letter-spacing:0;}.brand svg{width:28px;height:28px;}.nav .btn.sm{padding:0 14px;font-size:.84rem;}.ticker{font-size:.76rem;}}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px;font-weight:600;font-size:.94rem;}
+  .nav ul a:hover{color:var(--noodle);}
+  @media(min-width:860px){.nav ul{display:flex;}}
+
+  /* hero */
+  .hero{background:var(--black);color:#fff;padding:34px 0 0;overflow:hidden;position:relative;}
+  .hero-grid{display:grid;gap:26px;align-items:center;padding-bottom:36px;}
+  @media(min-width:900px){.hero{padding-top:66px;}.hero-grid{grid-template-columns:1.15fr .85fr;gap:30px;}}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .badge{background:rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:700;}
+  .badge b{color:var(--noodle);}
+  .hero h1{font-size:clamp(3.4rem,15vw,7.6rem);color:#fff;}
+  .hero h1 span{color:var(--noodle);}
+  .hero .lead{margin:18px 0 26px;font-size:1.1rem;color:#d4d1ca;max-width:44ch;}
+  .cta-row{display:grid;gap:10px;}
+  @media(min-width:520px){.cta-row{grid-template-columns:auto auto;justify-content:start;}}
+  .hero-art{position:relative;justify-self:center;width:min(380px,84vw);padding-bottom:28px;}
+  .steam{animation:steam 3s ease-in-out infinite;transform-origin:center bottom;}
+  .steam:nth-child(2){animation-delay:.6s}.steam:nth-child(3){animation-delay:1.2s}
+  @keyframes steam{0%{opacity:0;transform:translateY(8px)}50%{opacity:.9}100%{opacity:0;transform:translateY(-14px)}}
+
+  /* trust strip */
+  .strip{background:var(--chilli);color:#fff;}
+  .strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+  @media(min-width:760px){.strip-grid{grid-template-columns:repeat(4,1fr);}}
+  .strip-item{padding:18px 8px;text-align:center;border-right:1px solid rgba(255,255,255,.25);}
+  .strip-item:nth-child(even){border-right:0;}
+  @media(min-width:760px){.strip-item:nth-child(even){border-right:1px solid rgba(255,255,255,.25);}.strip-item:last-child{border-right:0;}}
+  .strip-item b{display:block;font-family:var(--display);font-size:1.5rem;letter-spacing:.02em;text-transform:uppercase;}
+  .strip-item span{font-size:.8rem;font-weight:600;opacity:.92;}
+
+  section{padding:64px 0;}
+  .sec-head{margin-bottom:28px;}
+  .sec-head h2{font-size:clamp(2.4rem,8vw,4.2rem);}
+  .sec-head p{margin-top:10px;color:var(--muted);max-width:52ch;}
+  .dark{background:var(--black);color:#fff;}
+  .dark .sec-head p{color:#c6c3bc;}
+
+  /* why */
+  .why{display:grid;gap:14px;}
+  @media(min-width:760px){.why{grid-template-columns:repeat(3,1fr);gap:18px;}}
+  .why-card{background:#fff;border-radius:18px;padding:24px;border:1px solid var(--line);}
+  .why-card .ic{width:50px;height:50px;border-radius:14px;background:var(--noodle);display:grid;place-items:center;font-size:1.5rem;margin-bottom:14px;}
+  .why-card h3{font-size:1.5rem;margin-bottom:6px;}
+  .why-card p{color:var(--muted);font-size:.95rem;}
+
+  /* menu + cart */
+  .menu-layout{display:grid;gap:22px;}
+  @media(min-width:960px){.menu-layout{grid-template-columns:1.5fr .9fr;gap:30px;align-items:start;}}
+  .cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;scrollbar-width:none;}
+  .cats::-webkit-scrollbar{display:none;}
+  .cat{flex:none;border:0;border-radius:999px;padding:11px 20px;background:#fff;color:var(--black);font:700 .92rem var(--body);cursor:pointer;box-shadow:inset 0 0 0 2px var(--line);min-height:44px;}
+  .cat[aria-pressed="true"]{background:var(--black);color:#fff;box-shadow:none;}
+  .items{display:grid;gap:10px;}
+  .item{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center;background:#fff;border-radius:16px;padding:16px 16px 16px 18px;border:1px solid var(--line);}
+  .item[hidden]{display:none;}
+  .item h3{font-size:1.45rem;letter-spacing:.02em;}
+  .item p{grid-column:1;color:var(--muted);font-size:.88rem;}
+  .item .right{grid-row:1/3;grid-column:2;display:flex;align-items:center;gap:12px;}
+  .price{font-weight:800;font-size:1.08rem;font-variant-numeric:tabular-nums;}
+  .add{width:46px;height:46px;border:0;border-radius:12px;background:var(--black);color:#fff;font:700 1.5rem/1 var(--body);cursor:pointer;display:grid;place-items:center;transition:background .15s,transform .1s;}
+  .add:hover{background:var(--chilli);}
+  .add:active{transform:scale(.92);}
+  .hot{display:inline-block;margin-left:8px;vertical-align:middle;background:var(--chilli);color:#fff;font:800 .62rem var(--body);letter-spacing:.08em;padding:3px 8px;border-radius:6px;text-transform:uppercase;}
+  .menu-note{margin-top:16px;font-size:.82rem;color:var(--muted);}
+
+  .cart{background:var(--black);color:#fff;border-radius:20px;padding:22px;position:sticky;top:84px;}
+  .cart h3{font-size:1.7rem;color:var(--noodle);margin-bottom:12px;}
+  .cart ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;min-height:44px;}
+  .cart li{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;font-size:.95rem;}
+  .cart .q{display:inline-flex;align-items:center;gap:6px;}
+  .cart .q button{width:28px;height:28px;border:0;border-radius:8px;background:rgba(255,255,255,.16);color:#fff;font-weight:800;cursor:pointer;}
+  .cart .empty{color:#a8a59e;font-size:.92rem;}
+  .cart .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.2);margin:14px 0;padding-top:14px;}
+  .cart .total b{font-family:var(--display);font-size:2rem;}
+
+  /* order form */
+  .order{display:grid;gap:26px;}
+  @media(min-width:900px){.order{grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start;}}
+  .big-call{display:inline-block;margin:22px 0 4px;font-family:var(--display);font-size:clamp(2.2rem,8vw,3.4rem);color:var(--noodle);letter-spacing:.02em;}
+  form.card{background:#fff;color:var(--black);border-radius:20px;padding:24px;display:grid;gap:14px;}
+  @media(max-width:520px){form.card{padding:18px;}}
+  .row{display:grid;gap:14px;}
+  @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.84rem;font-weight:700;}
+  input,select,textarea{font:500 1rem var(--body);padding:14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--black);width:100%;min-height:50px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--chilli);box-shadow:0 0 0 4px rgba(230,58,31,.18);}
+  textarea{min-height:120px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-weight:700;font-size:.92rem;}
+  .form-note.ok{color:#1c7a3d;}
+  .form-note.err{color:var(--chilli-d);}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:500;}
+
+  /* visit */
+  .visit{display:grid;gap:18px;}
+  @media(min-width:820px){.visit{grid-template-columns:1fr 1fr;gap:24px;}}
+  .info{background:#fff;border-radius:20px;padding:26px;border:1px solid var(--line);}
+  .info h3{font-size:1.8rem;margin-bottom:12px;}
+  address{font-style:normal;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+
+  footer{background:var(--black);color:#cfccc5;padding:42px 0 100px;font-size:.92rem;}
+  @media(min-width:860px){footer{padding-bottom:34px;}}
+  .foot{display:grid;gap:22px;}
+  @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:#fff;margin-bottom:10px;}
+  footer h4{margin:0 0 8px;color:var(--noodle);font:800 .78rem var(--body);letter-spacing:.14em;text-transform:uppercase;}
+  footer a:hover{color:#fff;}
+  .disclaimer{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:.72rem;color:#8f8c85;}
+
+  /* sticky mobile order bar */
+  .order-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--black);border-top:2px solid var(--noodle);}
+  .order-bar a{min-height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.98rem;}
+  .order-bar .go{background:var(--chilli);color:#fff;}
+  .order-bar .call{background:var(--noodle);color:var(--black);}
+  @media(min-width:860px){.order-bar{display:none;}}
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.steam{animation:none;opacity:.6}.reveal{opacity:1;transform:none;transition:none;}.btn,.add{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ticker">Order pickup now &mdash; call <a href="tel:0755917151">(07) 5591 7151</a> or order below</div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Panda Noodle Bowl home">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="21" r="14" fill="#fff"/><circle cx="9" cy="10" r="5.5" fill="#141414"/><circle cx="31" cy="10" r="5.5" fill="#141414"/><ellipse cx="14" cy="20" rx="3.6" ry="4.6" fill="#141414" transform="rotate(-20 14 20)"/><ellipse cx="26" cy="20" rx="3.6" ry="4.6" fill="#141414" transform="rotate(20 26 20)"/><circle cx="14.5" cy="19.6" r="1.2" fill="#fff"/><circle cx="25.5" cy="19.6" r="1.2" fill="#fff"/><ellipse cx="20" cy="27" rx="2.4" ry="1.6" fill="#141414"/></svg>
+      Panda Noodle Bowl
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#order">Order</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+    <a class="btn sm" href="#menu">Order now</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- HERO -->
+  <section class="hero" id="top" style="padding-bottom:0">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge-row">
+          <span class="badge"><b>&#9733; 4.6</b> 190+ ratings on Uber Eats</span>
+          <span class="badge">Dine-in &amp; takeaway</span>
+        </div>
+        <h1>Hot noodles.<br><span>Fast.</span></h1>
+        <p class="lead">Big, steaming bowls of laksa, pad thai and stir-fried noodles &mdash; made to order at Varsity Lakes and in your hands in minutes.</p>
+        <div class="cta-row">
+          <a class="btn" href="#menu">Order for pickup</a>
+          <a class="btn yellow" href="tel:0755917151">Call (07) 5591 7151</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 320 300">
+          <g fill="none" stroke="#ffc933" stroke-width="7" stroke-linecap="round">
+            <path class="steam" d="M110 70c-14-16 14-30 0-48"/>
+            <path class="steam" d="M160 66c-14-16 14-30 0-52"/>
+            <path class="steam" d="M210 70c-14-16 14-30 0-48"/>
+          </g>
+          <path d="M20 110h280c0 84-52 150-140 150S20 194 20 110z" fill="#e63a1f"/>
+          <path d="M20 110h280" stroke="#141414" stroke-width="0"/>
+          <ellipse cx="160" cy="110" rx="140" ry="22" fill="#ffc933"/>
+          <g fill="none" stroke="#fff3c4" stroke-width="7" stroke-linecap="round">
+            <path d="M60 112c20-10 30 10 50 0s30 10 50 0 30 10 50 0 30 10 50 0"/>
+            <path d="M80 100c20-10 30 10 50 0s30 10 50 0 30 10 50 0"/>
+          </g>
+          <circle cx="110" cy="98" r="14" fill="#fff"/><circle cx="110" cy="98" r="6" fill="#ffc933"/>
+          <path d="M190 90c10-14 30-8 28 6-2 12-24 14-28-6z" fill="#7bb661"/>
+          <rect x="226" y="30" width="10" height="96" rx="5" fill="#fff" transform="rotate(22 231 78)"/>
+          <rect x="248" y="34" width="10" height="96" rx="5" fill="#fff" transform="rotate(22 253 82)"/>
+          <path d="M64 270h192" stroke="#ffc933" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="strip" style="margin-top:6px">
+      <div class="wrap strip-grid">
+        <div class="strip-item"><b>Fast</b><span>Made to order, quick</span></div>
+        <div class="strip-item"><b>Big bowls</b><span>Hearty portions</span></div>
+        <div class="strip-item"><b>4.6 &#9733;</b><span>On Uber Eats</span></div>
+        <div class="strip-item"><b>Varsity Lakes</b><span>Varsity Parade</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Why you&rsquo;ll be back</h2></div>
+      <div class="why">
+        <div class="why-card reveal"><div class="ic" aria-hidden="true">&#9889;</div><h3>Quick lunch</h3><p>Order ahead, walk in, grab your bowl. Perfect for a lunch break.</p></div>
+        <div class="why-card reveal"><div class="ic" aria-hidden="true">&#127836;</div><h3>Asian-fusion favourites</h3><p>Laksa, pad thai, Thai fried rice and more &mdash; big on flavour.</p></div>
+        <div class="why-card reveal"><div class="ic" aria-hidden="true">&#127969;</div><h3>Dine in or take away</h3><p>Sit down in store, take it to go, or get it delivered.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU + CART -->
+  <section id="menu" style="padding-top:8px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Pick your bowl</h2>
+        <p>Tap + to add to your order, then send it for pickup.</p>
+      </div>
+      <div class="menu-layout">
+        <div>
+          <div class="cats" role="group" aria-label="Menu categories">
+            <button class="cat" type="button" data-cat="all" aria-pressed="true">All</button>
+            <button class="cat" type="button" data-cat="soup" aria-pressed="false">Noodle Soups</button>
+            <button class="cat" type="button" data-cat="stir" aria-pressed="false">Stir-fried</button>
+            <button class="cat" type="button" data-cat="side" aria-pressed="false">Sides &amp; Drinks</button>
+          </div>
+          <div class="items" id="items">
+            <article class="item" data-cat="soup" data-name="Laksa" data-price="24.50"><h3>Laksa <span class="hot">Top seller</span></h3><p>Creamy coconut curry broth, noodles, tofu puffs, bean sprouts.</p><div class="right"><span class="price">$24.50</span><button class="add" type="button" aria-label="Add Laksa">+</button></div></article>
+            <article class="item" data-cat="stir" data-name="Pad Thai" data-price="24.50"><h3>Pad Thai <span class="hot">Top seller</span></h3><p>Rice noodles, egg, bean sprouts, peanuts, lime.</p><div class="right"><span class="price">$24.50</span><button class="add" type="button" aria-label="Add Pad Thai">+</button></div></article>
+            <article class="item" data-cat="stir" data-name="Thai Fried Rice" data-price="24.50"><h3>Thai Fried Rice <span class="hot">Top seller</span></h3><p>Wok-fried jasmine rice, egg, onion, tomato, basil.</p><div class="right"><span class="price">$24.50</span><button class="add" type="button" aria-label="Add Thai Fried Rice">+</button></div></article>
+            <article class="item" data-cat="soup" data-name="Tom Yum Noodle Soup" data-price="23.50"><h3>Tom Yum Noodle Soup</h3><p>Hot &amp; sour broth, prawns, mushroom, lemongrass.</p><div class="right"><span class="price">$23.50</span><button class="add" type="button" aria-label="Add Tom Yum Noodle Soup">+</button></div></article>
+            <article class="item" data-cat="stir" data-name="Singapore Noodles" data-price="23.50"><h3>Singapore Noodles</h3><p>Thin rice vermicelli, curry powder, egg, veg, chicken.</p><div class="right"><span class="price">$23.50</span><button class="add" type="button" aria-label="Add Singapore Noodles">+</button></div></article>
+            <article class="item" data-cat="stir" data-name="Beef Hor Fun" data-price="24.50"><h3>Beef Hor Fun</h3><p>Wide rice noodles, tender beef, gai lan, savoury gravy.</p><div class="right"><span class="price">$24.50</span><button class="add" type="button" aria-label="Add Beef Hor Fun">+</button></div></article>
+            <article class="item" data-cat="side" data-name="Spring Rolls (4)" data-price="9.50"><h3>Spring Rolls (4)</h3><p>Crispy vegetable rolls with sweet chilli.</p><div class="right"><span class="price">$9.50</span><button class="add" type="button" aria-label="Add Spring Rolls">+</button></div></article>
+            <article class="item" data-cat="side" data-name="Dumplings (6)" data-price="11.00"><h3>Dumplings (6)</h3><p>Pan-fried pork &amp; chive with soy dip.</p><div class="right"><span class="price">$11.00</span><button class="add" type="button" aria-label="Add Dumplings">+</button></div></article>
+            <article class="item" data-cat="side" data-name="Thai Iced Tea" data-price="6.50"><h3>Thai Iced Tea</h3><p>Sweet, creamy and ice-cold.</p><div class="right"><span class="price">$6.50</span><button class="add" type="button" aria-label="Add Thai Iced Tea">+</button></div></article>
+          </div>
+          <p class="menu-note">Sample menu and pricing shown for illustration &mdash; to be replaced with Panda Noodle Bowl&rsquo;s real menu.</p>
+        </div>
+
+        <aside class="cart" aria-label="Your order">
+          <h3>Your order</h3>
+          <ul id="cart-list"><li class="empty">Nothing yet &mdash; tap + on a dish.</li></ul>
+          <div class="total"><span>Total</span><b id="cart-total">$0.00</b></div>
+          <a class="btn yellow block" href="#order" id="checkout">Send for pickup</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section class="dark" id="order">
+    <div class="wrap order">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:0">
+          <h2>Ready when you are</h2>
+          <p>Send your order and pickup time &mdash; we&rsquo;ll text to confirm. For big orders or catering, add a note.</p>
+        </div>
+        <a class="big-call" href="tel:0755917151">(07) 5591 7151</a>
+        <p style="color:#c6c3bc;font-size:.92rem">Prefer to call? We&rsquo;ll take your order over the phone.</p>
+      </div>
+      <form class="card reveal" id="inquiry" name="panda-noodle-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="panda-noodle-order">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="row two">
+          <label>Name<input name="name" type="text" required autocomplete="name" placeholder="Your name"></label>
+          <label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx"></label>
+        </div>
+        <div class="row two">
+          <label>Order type
+            <select name="type"><option>Pickup</option><option>Large / catering order</option></select>
+          </label>
+          <label>Pickup time<input name="time" type="time" required></label>
+        </div>
+        <label>Your order<textarea name="order" id="order-text" required placeholder="Add dishes with + above, or type your order here"></textarea></label>
+        <button class="btn" type="submit">Send my order</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm by SMS or phone. Payment in store.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section id="visit">
+    <div class="wrap visit">
+      <div class="info reveal">
+        <h3>Find us</h3>
+        <address><strong>Panda Noodle Bowl</strong><br>Shop B2, 201 Varsity Parade<br>Varsity Lakes QLD 4227</address>
+        <div class="links">
+          <a class="btn sm dark" href="https://www.google.com/maps/search/?api=1&amp;query=Panda+Noodle+Bowl+201+Varsity+Parade+Varsity+Lakes" target="_blank" rel="noopener">Directions</a>
+          <a class="btn sm line" href="tel:0755917151">Call</a>
+        </div>
+      </div>
+      <div class="info reveal">
+        <h3>Order online</h3>
+        <p>Open for lunch and dinner &mdash; call for today&rsquo;s hours. Prefer delivery? Find us on Uber Eats.</p>
+        <div class="links">
+          <a class="btn sm" href="https://www.ubereats.com/au/store/panda-noodle-bowl/-Q9Oh2sJSHahW7j7UuLx8Q" target="_blank" rel="noopener">Uber Eats</a>
+          <a class="btn sm line" href="https://www.instagram.com/pandanoodlebowl/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><a class="brand" href="#top">Panda Noodle Bowl</a><p>Asian-fusion noodles &amp; stir-fries &middot; Varsity Lakes, Gold Coast.</p></div>
+      <div><h4>Visit</h4><address>Shop B2, 201 Varsity Parade<br>Varsity Lakes QLD 4227</address></div>
+      <div><h4>Contact</h4><a href="tel:0755917151">(07) 5591 7151</a><br><a href="https://www.instagram.com/pandanoodlebowl/" target="_blank" rel="noopener">@pandanoodlebowl</a></div>
+    </div>
+    <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+  </div>
+</footer>
+
+<nav class="order-bar" aria-label="Quick actions">
+  <a class="go" href="#menu">Order now</a>
+  <a class="call" href="tel:0755917151">Call</a>
+</nav>
+
+<script>
+(function(){
+  /* category filter */
+  var cats=document.querySelectorAll('.cat'),items=document.querySelectorAll('#items .item');
+  cats.forEach(function(c){c.addEventListener('click',function(){
+    cats.forEach(function(x){x.setAttribute('aria-pressed',x===c);});
+    var f=c.getAttribute('data-cat');
+    items.forEach(function(i){i.hidden=!(f==='all'||i.getAttribute('data-cat')===f);});
+  });});
+
+  /* cart */
+  var cart={},list=document.getElementById('cart-list'),totalEl=document.getElementById('cart-total'),orderText=document.getElementById('order-text');
+  function money(n){return '$'+n.toFixed(2);}
+  function render(){
+    var names=Object.keys(cart),total=0,lines=[];
+    list.innerHTML='';
+    if(!names.length){var li=document.createElement('li');li.className='empty';li.textContent='Nothing yet — tap + on a dish.';list.appendChild(li);}
+    names.forEach(function(n){
+      var it=cart[n],sub=it.qty*it.price;total+=sub;lines.push(it.qty+' x '+n);
+      var li=document.createElement('li');
+      var s=document.createElement('span');s.textContent=n;
+      var q=document.createElement('span');q.className='q';
+      var m=document.createElement('button');m.type='button';m.textContent='−';m.setAttribute('aria-label','Remove one '+n);
+      var c=document.createElement('span');c.textContent=it.qty;
+      var p=document.createElement('button');p.type='button';p.textContent='+';p.setAttribute('aria-label','Add one '+n);
+      m.onclick=function(){it.qty--;if(it.qty<=0)delete cart[n];render();};
+      p.onclick=function(){it.qty++;render();};
+      q.appendChild(m);q.appendChild(c);q.appendChild(p);
+      var pr=document.createElement('span');pr.textContent=money(sub);
+      li.appendChild(s);li.appendChild(q);li.appendChild(pr);list.appendChild(li);
+    });
+    totalEl.textContent=money(total);
+    orderText.value=lines.length?lines.join('\n')+'\nTotal: '+money(total):'';
+  }
+  document.querySelectorAll('.add').forEach(function(b){b.addEventListener('click',function(){
+    var a=b.closest('.item'),n=a.getAttribute('data-name'),p=parseFloat(a.getAttribute('data-price'));
+    if(cart[n])cart[n].qty++;else cart[n]={qty:1,price:p};
+    render();
+  });});
+
+  /* form */
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){if(!r.ok)throw new Error('x');form.reset();cart={};render();note.className='form-note ok';note.textContent='Order sent! We’ll text you to confirm.';})
+      .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+      .then(function(){btn.disabled=false;});
+  });
+
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.1});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>
