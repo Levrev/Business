@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hazel Espresso &mdash; Brunch &amp; Vietnamese Coffee, Southport</title>
+<meta name="description" content="Australian brunch with a Vietnamese heart: ST. ALi coffee, banh mi, chilli crab croissants and Hanoi egg coffee on Davenport Street, Southport.">
+<meta name="theme-color" content="#4f5b2f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --cream:#f4efe3; --paper:#fbf8f0; --olive:#4f5b2f; --olive-d:#363f20; --hazel:#8a5a3b; --coral:#e8573c; --sand:#e6dcc4;
+    --ink:#231f1a; --muted:#756b5c; --line:rgba(35,31,26,.16);
+    --serif:"Fraunces","Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;} svg{display:block;max-width:100%;}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;line-height:1.05;letter-spacing:-.015em;color:var(--olive-d);}
+  p{margin:0;}
+  .wrap{width:min(1120px,100% - 40px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--olive-d);color:#fff;padding:8px 14px;z-index:100;} .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--coral);outline-offset:3px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;border:2px solid var(--olive-d);background:var(--olive-d);color:var(--cream);font:600 .93rem var(--sans);letter-spacing:.02em;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,transform .15s;white-space:nowrap;}
+  .btn:hover{background:var(--coral);border-color:var(--coral);transform:translateY(-1px);}
+  .btn.ghost{background:transparent;color:var(--olive-d);} .btn.ghost:hover{background:var(--olive-d);border-color:var(--olive-d);color:var(--cream);}
+  .btn.sm{min-height:40px;padding:0 18px;font-size:.85rem;}
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(244,239,227,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;}
+  .brand{display:flex;align-items:baseline;gap:6px;font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--olive-d);white-space:nowrap;} .brand em{font-style:italic;font-weight:500;color:var(--coral);}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px;font-weight:500;font-size:.93rem;} .nav ul a:hover{color:var(--coral);}
+  @media(min-width:860px){.nav ul{display:flex;}}
+
+  .hero{padding:56px 0 76px;overflow:hidden;}
+  .hero-grid{display:grid;gap:40px;align-items:center;} @media(min-width:920px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:60px;}}
+  .kick{display:inline-flex;gap:10px;align-items:center;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);} .kick::before{content:"";width:28px;height:2px;background:var(--coral);}
+  .hero h1{font-size:clamp(3rem,8vw,5.8rem);margin:16px 0 20px;} .hero h1 em{color:var(--coral);}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:46ch;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:30px;font-size:.92rem;color:var(--muted);} .meta b{color:var(--ink);}
+  .plate{position:relative;justify-self:center;width:min(430px,90vw);aspect-ratio:1;}
+  .plate .disc{position:absolute;inset:0;border-radius:50%;background:var(--olive);}
+  .plate .ring{position:absolute;inset:6%;border-radius:50%;border:2px dashed rgba(244,239,227,.45);}
+  .plate svg{position:absolute;inset:0;width:100%;height:100%;}
+  .sticker{position:absolute;right:-2%;top:6%;background:var(--coral);color:#fff;border-radius:50%;width:112px;height:112px;display:grid;place-content:center;text-align:center;font-family:var(--serif);font-style:italic;line-height:1.15;transform:rotate(10deg);box-shadow:0 14px 24px -14px rgba(0,0,0,.6);font-size:.98rem;} .sticker b{font-size:1.35rem;font-style:normal;}
+
+  .marquee{background:var(--olive-d);color:var(--cream);overflow:hidden;white-space:nowrap;padding:14px 0;font-family:var(--serif);font-style:italic;font-size:1.25rem;}
+  .marquee .track{display:inline-block;animation:slide 40s linear infinite;} .marquee .track span{padding-right:2rem;} @keyframes slide{to{transform:translateX(-50%)}}
+
+  section{padding:76px 0;}
+  .sec-head{margin-bottom:34px;max-width:620px;} .sec-head h2{font-size:clamp(2.2rem,5.4vw,3.6rem);margin-top:12px;} .sec-head p{margin-top:14px;color:var(--muted);}
+  .band{background:var(--olive);color:var(--cream);} .band h2,.band h3{color:var(--cream);} .band .kick{color:var(--sand);} .band .kick::before{background:var(--sand);} .band p{color:#dcdcc2;}
+
+  .about{display:grid;gap:36px;align-items:center;} @media(min-width:900px){.about{grid-template-columns:1fr 1fr;gap:64px;}}
+  .about p+p{margin-top:16px;}
+  .tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .tile{background:rgba(244,239,227,.09);border:1px solid rgba(244,239,227,.2);border-radius:18px;padding:20px;}
+  .tile b{display:block;font-family:var(--serif);font-size:1.5rem;margin-bottom:4px;color:var(--cream);} .tile span{font-size:.9rem;color:#dcdcc2;}
+
+  .menu-grid{display:grid;gap:20px;} @media(min-width:820px){.menu-grid{grid-template-columns:1fr 1fr;gap:24px;}}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:28px;}
+  .card h3{font-size:1.8rem;padding-bottom:12px;border-bottom:2px solid var(--olive-d);margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+  .card h3 span{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);}
+  .item{padding:14px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 14px;} .item:last-child{border-bottom:0;}
+  .item b{font-weight:600;} .item .p{font-weight:700;font-variant-numeric:tabular-nums;} .item small{grid-column:1/-1;color:var(--muted);font-size:.9rem;}
+  .tag{display:inline-block;margin-left:8px;background:var(--coral);color:#fff;font:700 .6rem var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border-radius:999px;vertical-align:middle;}
+  .menu-note{text-align:center;margin-top:24px;font-size:.84rem;color:var(--muted);}
+
+  .book{display:grid;gap:36px;align-items:start;} @media(min-width:900px){.book{grid-template-columns:.85fr 1.15fr;gap:64px;}}
+  .perks{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;color:#ecebd4;} .perks li{display:flex;gap:12px;} .perks li::before{content:"\2726";color:var(--sand);}
+  form.formcard{background:var(--cream);color:var(--ink);border-radius:26px;padding:28px;display:grid;gap:14px;} @media(max-width:520px){form.formcard{padding:20px;}}
+  .row{display:grid;gap:14px;} @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}.row.three{grid-template-columns:1fr 1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.84rem;font-weight:600;color:var(--olive-d);}
+  input,select,textarea{font:400 1rem var(--sans);padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;background:#fffdf7;color:var(--ink);width:100%;min-height:48px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(232,87,60,.2);}
+  textarea{min-height:92px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-weight:700;font-size:.92rem;} .form-note.ok{color:#2e7a45;} .form-note.err{color:#b4442a;}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:400;}
+
+  .visit{display:grid;gap:30px;} @media(min-width:860px){.visit{grid-template-columns:1fr 1fr;gap:64px;}}
+  address{font-style:normal;font-size:1.08rem;}
+  .hours{width:100%;border-collapse:collapse;} .hours th,.hours td{padding:13px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:500;} .hours td{text-align:right;font-weight:700;color:var(--olive-d);font-variant-numeric:tabular-nums;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+
+  footer{background:var(--olive-d);color:#cfd1b5;padding:44px 0 32px;font-size:.92rem;}
+  .foot{display:grid;gap:22px;} @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:var(--cream);margin-bottom:8px;} footer h4{margin:0 0 8px;color:var(--sand);font:700 .78rem var(--sans);letter-spacing:.14em;text-transform:uppercase;} footer a:hover{color:#fff;}
+  .disclaimer{margin-top:26px;padding-top:16px;border-top:1px solid rgba(244,239,227,.16);font-size:.72rem;color:#9ea17f;}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;} .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee .track{animation:none}.reveal{opacity:1;transform:none;transition:none;}.btn{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="#top" aria-label="Hazel Espresso home">Hazel <em>Espresso</em></a>
+  <nav aria-label="Primary"><ul><li><a href="#story">Our Story</a></li><li><a href="#menu">Menu</a></li><li><a href="#book">Book</a></li><li><a href="#visit">Visit</a></li></ul></nav>
+  <a class="btn sm" href="#book">Book a table</a>
+</div></header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kick">Brunch &amp; coffee &middot; Southport</span>
+        <h1>Brunch with a <em>Vietnamese</em> heart.</h1>
+        <p class="lead">Australian brunch classics with a Southeast Asian twist &mdash; chilli crab scramble on a toasted croissant, crisp banh mi, Hanoi egg coffee and ST. ALi espresso, on Davenport Street.</p>
+        <div class="cta-row"><a class="btn" href="#menu">See the menu</a><a class="btn ghost" href="#book">Book a table</a></div>
+        <div class="meta"><span><b>Mon&ndash;Fri</b> 7am&ndash;2:30pm</span><span><b>Sat&ndash;Sun</b> 7am&ndash;2pm</span></div>
+      </div>
+      <div class="plate" aria-hidden="true">
+        <div class="disc"></div><div class="ring"></div>
+        <svg viewBox="0 0 430 430">
+          <g transform="translate(215 215)">
+            <circle r="132" fill="#fbf8f0"/><circle r="132" fill="none" stroke="#e6dcc4" stroke-width="6"/>
+            <path d="M-70-30c10-50 90-60 110-10 12 30-10 66-46 66-46 0-72-20-64-56z" fill="#e0a24f"/>
+            <path d="M-56-18c10-14 70-16 90 0" stroke="#b9762a" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <ellipse cx="2" cy="-4" rx="42" ry="26" fill="#f6e08a"/><circle cx="2" cy="-4" r="14" fill="#f2b632"/>
+            <path d="M40 40q40-10 62 14-30 24-62-14z" fill="#e8573c"/>
+            <g fill="#7ab55c"><ellipse cx="-80" cy="56" rx="14" ry="7" transform="rotate(-30 -80 56)"/><ellipse cx="-60" cy="76" rx="14" ry="7" transform="rotate(20 -60 76)"/><ellipse cx="-98" cy="76" rx="12" ry="6" transform="rotate(60 -98 76)"/></g>
+          </g>
+        </svg>
+        <div class="sticker"><div>Open<br><b>7am</b>weekdays</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Chilli crab scramble &nbsp;&bull;&nbsp; Banh mi &nbsp;&bull;&nbsp; Hanoi egg coffee &nbsp;&bull;&nbsp; Tamago sando &nbsp;&bull;&nbsp; ST. ALi espresso &nbsp;&bull;&nbsp; Vietnamese iced coffee &nbsp;&bull;&nbsp; Chilli crab scramble &nbsp;&bull;&nbsp; Banh mi &nbsp;&bull;&nbsp; Hanoi egg coffee &nbsp;&bull;&nbsp; Tamago sando &nbsp;&bull;&nbsp; ST. ALi espresso &nbsp;&bull;&nbsp; Vietnamese iced coffee &nbsp;&bull;&nbsp;</span><span>Chilli crab scramble &nbsp;&bull;&nbsp; Banh mi &nbsp;&bull;&nbsp; Hanoi egg coffee &nbsp;&bull;&nbsp; Tamago sando &nbsp;&bull;&nbsp; ST. ALi espresso &nbsp;&bull;&nbsp; Vietnamese iced coffee &nbsp;&bull;&nbsp; Chilli crab scramble &nbsp;&bull;&nbsp; Banh mi &nbsp;&bull;&nbsp; Hanoi egg coffee &nbsp;&bull;&nbsp; Tamago sando &nbsp;&bull;&nbsp; ST. ALi espresso &nbsp;&bull;&nbsp; Vietnamese iced coffee &nbsp;&bull;&nbsp;</span></div></div>
+
+  <section class="band" id="story">
+    <div class="wrap about">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:20px"><span class="kick">Our story</span><h2>Two food cultures. One good table.</h2></div>
+        <p>Hazel Espresso has been welcoming Southport guests since November 2021, blending Australian brunch traditions with the flavours of Southeast Asia.</p>
+        <p>Expect familiar comforts &mdash; eggs, toast, a proper flat white &mdash; reimagined with Vietnamese coffee, colourful banh mi and a few surprises, in a relaxed, friendly space.</p>
+      </div>
+      <div class="tiles reveal">
+        <div class="tile"><b>ST. ALi</b><span>Specialty coffee from the Australian roaster</span></div>
+        <div class="tile"><b>Vietnamese</b><span>Iced filter coffee and Hanoi egg coffee</span></div>
+        <div class="tile"><b>Banh mi</b><span>Crisp baguettes, bold fillings</span></div>
+        <div class="tile"><b>Since 2021</b><span>Davenport Street, Southport</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="kick">Menu highlights</span><h2>Brunch, reimagined</h2></div>
+      <div class="menu-grid">
+        <article class="card reveal"><h3>Brunch <span>Plates</span></h3>
+          <div class="item"><b>Chilli Crab Scramble <span class="tag">Signature</span></b><span class="p">$24.00</span><small>Soft scrambled eggs, chilli crab, spring onion on a toasted croissant.</small></div>
+          <div class="item"><b>Banh Mi Breakfast Board</b><span class="p">$26.00</span><small>Baguette, fried egg, pate, pickles, herbs and chilli mayo.</small></div>
+          <div class="item"><b>Tamago Salad Sando</b><span class="p">$16.50</span><small>Japanese-style egg salad in fluffy milk bread.</small></div>
+          <div class="item"><b>Smashed Avo &amp; Feta</b><span class="p">$21.00</span><small>Sourdough, lime, chilli oil, poached egg.</small></div>
+        </article>
+        <article class="card reveal"><h3>Coffee <span>ST. ALi</span></h3>
+          <div class="item"><b>Flat White / Latte</b><span class="p">$4.80</span></div>
+          <div class="item"><b>Vietnamese Iced Coffee</b><span class="p">$7.00</span><small>Strong filter coffee over sweetened condensed milk.</small></div>
+          <div class="item"><b>Hanoi Egg Coffee <span class="tag">Try it</span></b><span class="p">$8.50</span><small>Velvety whipped egg cream over robust coffee.</small></div>
+          <div class="item"><b>Cold Brew</b><span class="p">$6.00</span></div>
+        </article>
+        <article class="card reveal"><h3>Baguettes <span>Banh mi</span></h3>
+          <div class="item"><b>Lemongrass Chicken Banh Mi</b><span class="p">$15.50</span></div>
+          <div class="item"><b>Crispy Pork Belly Banh Mi</b><span class="p">$16.50</span></div>
+          <div class="item"><b>Tofu &amp; Mushroom Banh Mi (V)</b><span class="p">$14.50</span></div>
+        </article>
+        <article class="card reveal"><h3>Sweet <span>Treats</span></h3>
+          <div class="item"><b>Butter Croissant</b><span class="p">$5.50</span></div>
+          <div class="item"><b>Pandan Waffle</b><span class="p">$16.00</span><small>Coconut cream, mango and toasted sesame.</small></div>
+          <div class="item"><b>Fresh Juice</b><span class="p">$7.00</span></div>
+        </article>
+      </div>
+      <p class="menu-note">Sample menu and pricing shown for illustration &mdash; to be replaced with Hazel Espresso&rsquo;s real menu.</p>
+    </div>
+  </section>
+
+  <section class="band" id="book">
+    <div class="wrap book">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:0"><span class="kick">Reservations</span><h2>Save your brunch table.</h2><p>Weekend rush? Send us your booking request and we&rsquo;ll confirm your table.</p></div>
+        <ul class="perks"><li>Groups and celebrations welcome</li><li>Breakfast and lunch bookings</li><li>Tell us about dietary needs</li></ul>
+      </div>
+      <form class="formcard reveal" id="inquiry" name="hazel-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="hazel-booking">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="row two"><label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx"></label></div>
+        <div class="row three"><label>Date<input name="date" id="d" type="date" required></label><label>Time<input name="time" type="time" min="07:00" max="14:00" required></label><label>Guests<select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></label></div>
+        <label>Notes <span class="fine">(optional)</span><textarea name="message" placeholder="Allergies, high chair, celebration&hellip;"></textarea></label>
+        <button class="btn" type="submit">Request a table</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm by SMS or email &mdash; this isn&rsquo;t an automatic reservation.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:16px"><span class="kick">Visit</span><h2>Find Hazel</h2></div>
+        <address><strong>Hazel Espresso</strong><br>9 Davenport Street<br>Southport QLD 4215</address>
+        <div class="links"><a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=Hazel+Espresso+9+Davenport+Street+Southport" target="_blank" rel="noopener">Directions</a><a class="btn sm ghost" href="https://www.facebook.com/hazel.espresso/" target="_blank" rel="noopener">Facebook</a></div>
+      </div>
+      <div class="reveal">
+        <table class="hours"><caption style="position:absolute;left:-9999px">Opening hours</caption><tbody>
+          <tr><th scope="row">Monday &ndash; Friday</th><td>7:00am &ndash; 2:30pm</td></tr>
+          <tr><th scope="row">Saturday &ndash; Sunday</th><td>7:00am &ndash; 2:00pm</td></tr>
+        </tbody></table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><div class="brand">Hazel <em>Espresso</em></div><p>Brunch &amp; Vietnamese coffee &middot; Southport, Gold Coast.</p></div>
+    <div><h4>Find us</h4><address>9 Davenport Street<br>Southport QLD 4215</address></div>
+    <div><h4>Follow</h4><a href="https://www.facebook.com/hazel.espresso/" target="_blank" rel="noopener">Facebook</a></div>
+  </div>
+  <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+</div></footer>
+
+<script>
+(function(){
+  var d=document.getElementById('d');if(d){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());d.min=t.toISOString().slice(0,10);}
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){if(!r.ok)throw new Error('x');form.reset();note.className='form-note ok';note.textContent='Thank you! Request received — we’ll confirm shortly.';})
+      .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+      .then(function(){btn.disabled=false;});
+  });
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});}else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You &amp; M Tea Shop &mdash; Milk Tea &amp; Fruit Tea, Southport</title>
+<meta name="description" content="Jasmine green milk tea, grape green tea with grape jelly and sparkling teas in a cosy Davenport Street tea shop, open late in Southport.">
+<meta name="theme-color" content="#10413b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Outfit:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --deep:#10413b; --deep-2:#0b2e2a; --jade:#2f8f7b; --mint:#cfeee3; --lilac:#e3d8ff; --lilac-d:#8f78d6; --peach:#ffcfae; --cream:#fbf7ef;
+    --ink:#17302c; --muted:#6b7f7a; --line:rgba(23,48,44,.15);
+    --serif:"Fraunces","Playfair Display",Georgia,serif;
+    --sans:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;} svg{display:block;max-width:100%;}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;margin:0;line-height:1.06;color:var(--deep);letter-spacing:-.01em;}
+  p{margin:0;}
+  .wrap{width:min(1100px,100% - 36px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--deep);color:#fff;padding:8px 14px;z-index:100;} .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--lilac-d);outline-offset:3px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border:0;border-radius:999px;background:var(--deep);color:#fff;font:600 .95rem var(--sans);cursor:pointer;transition:transform .12s,background .15s;white-space:nowrap;}
+  .btn:hover{background:var(--jade);transform:translateY(-1px);} .btn:active{transform:scale(.97);}
+  .btn.lilac{background:var(--lilac);color:var(--deep);} .btn.lilac:hover{background:#fff;}
+  .btn.ghost{background:transparent;color:var(--deep);box-shadow:inset 0 0 0 2px var(--deep);} .btn.ghost:hover{background:var(--deep);color:#fff;}
+  .btn.sm{min-height:40px;padding:0 18px;font-size:.86rem;}
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px;}
+  .brand{display:flex;align-items:center;gap:8px;font-family:var(--serif);font-weight:700;font-size:1.45rem;color:var(--deep);white-space:nowrap;} .brand i{font-style:italic;font-weight:600;color:var(--lilac-d);}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:26px;font-weight:500;font-size:.95rem;} .nav ul a:hover{color:var(--jade);}
+  @media(min-width:860px){.nav ul{display:flex;}}
+
+  .hero{background:var(--deep);color:#fff;padding:54px 0 70px;position:relative;overflow:hidden;}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 340px at 85% 30%,rgba(227,216,255,.22),transparent 70%),radial-gradient(420px 300px at 10% 100%,rgba(47,143,123,.45),transparent 70%);}
+  .hero-grid{display:grid;gap:36px;align-items:center;position:relative;} @media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr;gap:56px;}}
+  .open{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border-radius:999px;padding:7px 16px;font-weight:600;font-size:.84rem;}
+  .open::before{content:"";width:9px;height:9px;border-radius:50%;background:#7dffb8;box-shadow:0 0 12px #7dffb8;}
+  .hero h1{font-size:clamp(2.8rem,8vw,5.4rem);color:#fff;margin:18px 0 18px;} .hero h1 em{color:var(--lilac);}
+  .lead{font-size:1.12rem;color:#cfe4de;max-width:44ch;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .glow{justify-self:center;width:min(360px,80vw);position:relative;}
+  .float{animation:fl 5s ease-in-out infinite;} @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+  .strip{background:var(--lilac);color:var(--deep);} .strip .wrap{display:grid;grid-template-columns:1fr 1fr;} @media(min-width:760px){.strip .wrap{grid-template-columns:repeat(4,1fr);}}
+  .strip div{padding:16px 8px;text-align:center;font-weight:600;font-size:.92rem;border-right:1px solid rgba(16,65,59,.14);} .strip div:nth-child(2n){border-right:0;}
+  @media(min-width:760px){.strip div:nth-child(2n){border-right:1px solid rgba(16,65,59,.14);}.strip div:last-child{border-right:0;}} .strip b{display:block;font-family:var(--serif);font-size:1.15rem;}
+
+  section{padding:72px 0;}
+  .sec-head{margin-bottom:30px;max-width:620px;} .sec-head.center{text-align:center;margin-inline:auto;} .sec-head h2{font-size:clamp(2rem,5.6vw,3.3rem);margin-top:10px;} .sec-head p{margin-top:12px;color:var(--muted);}
+  .kick{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--jade);}
+
+  .finder{background:#fff;border-radius:28px;padding:26px;box-shadow:0 20px 44px -30px rgba(16,65,59,.6);border:1px solid var(--line);display:grid;gap:22px;} @media(min-width:860px){.finder{grid-template-columns:1fr 1fr;gap:34px;padding:34px;align-items:center;}}
+  .finder h3{font-size:1.5rem;margin-bottom:12px;}
+  .vibes{display:flex;flex-wrap:wrap;gap:8px;} .vibe{border:0;border-radius:999px;padding:12px 20px;background:var(--cream);color:var(--deep);font:600 .95rem var(--sans);cursor:pointer;box-shadow:inset 0 0 0 2px var(--line);min-height:46px;}
+  .vibe[aria-pressed="true"]{background:var(--deep);color:#fff;box-shadow:none;}
+  .pick{background:var(--mint);border-radius:22px;padding:24px;min-height:176px;display:grid;align-content:center;gap:6px;}
+  .pick small{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.72rem;color:var(--jade);} .pick h4{font-family:var(--serif);font-size:1.7rem;margin:0;color:var(--deep);line-height:1.1;} .pick p{color:var(--ink);} .pick .pr{font-weight:700;color:var(--deep);}
+
+  .menu-grid{display:grid;gap:18px;} @media(min-width:800px){.menu-grid{grid-template-columns:1fr 1fr;gap:22px;}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;}
+  .card h3{font-size:1.6rem;padding-bottom:12px;border-bottom:2px solid var(--deep);margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;} .card h3 span{font:700 .7rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lilac-d);}
+  .item{padding:13px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 14px;} .item:last-child{border-bottom:0;}
+  .item b{font-weight:600;} .item .p{font-weight:700;font-variant-numeric:tabular-nums;} .item small{grid-column:1/-1;color:var(--muted);font-size:.9rem;}
+  .tag{display:inline-block;margin-left:8px;background:var(--lilac);color:var(--deep);font:700 .6rem var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border-radius:999px;vertical-align:middle;}
+  .menu-note{text-align:center;margin-top:22px;font-size:.84rem;color:var(--muted);}
+
+  .dark{background:var(--deep-2);color:#fff;} .dark h2{color:#fff;} .dark .kick{color:var(--lilac);} .dark .sec-head p{color:#b7d1ca;}
+  .split{display:grid;gap:30px;align-items:start;} @media(min-width:900px){.split{grid-template-columns:.85fr 1.15fr;gap:56px;}}
+  .perks{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;color:#d3e5df;} .perks li{display:flex;gap:12px;} .perks li::before{content:"\1F375";}
+  form.formcard{background:var(--cream);color:var(--ink);border-radius:26px;padding:26px;display:grid;gap:14px;} @media(max-width:520px){form.formcard{padding:18px;}}
+  .row{display:grid;gap:14px;} @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}.row.three{grid-template-columns:1fr 1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.84rem;font-weight:600;color:var(--deep);}
+  input,select,textarea{font:400 1rem var(--sans);padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);width:100%;min-height:48px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--lilac-d);box-shadow:0 0 0 3px rgba(143,120,214,.25);}
+  textarea{min-height:92px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-weight:700;font-size:.92rem;} .form-note.ok{color:#1f7a47;} .form-note.err{color:#b4442a;}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:400;}
+
+  .visit{display:grid;gap:26px;} @media(min-width:860px){.visit{grid-template-columns:1fr 1fr;gap:56px;}}
+  address{font-style:normal;font-size:1.08rem;}
+  .hours{width:100%;border-collapse:collapse;} .hours th,.hours td{padding:13px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:500;} .hours td{text-align:right;font-weight:700;color:var(--deep);font-variant-numeric:tabular-nums;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+
+  footer{background:var(--deep-2);color:#b7d1ca;padding:42px 0 32px;font-size:.92rem;}
+  .foot{display:grid;gap:20px;} @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:#fff;margin-bottom:8px;} footer h4{margin:0 0 8px;color:var(--lilac);font:700 .76rem var(--sans);letter-spacing:.14em;text-transform:uppercase;} footer a:hover{color:#fff;}
+  .disclaimer{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:.72rem;color:#7e9a92;}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;} .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.float{animation:none}.reveal{opacity:1;transform:none;transition:none;}.btn{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="#top" aria-label="You &amp; M Tea Shop home">You <i>&amp;</i> M Tea Shop</a>
+  <nav aria-label="Primary"><ul><li><a href="#finder">Tea finder</a></li><li><a href="#menu">Menu</a></li><li><a href="#hangout">Book a spot</a></li><li><a href="#visit">Visit</a></li></ul></nav>
+  <a class="btn sm" href="#finder">Find my tea</a>
+</div></header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="open">Open late &middot; until 9&ndash;10pm</span>
+        <h1>Your cosy corner for <em>good tea.</em></h1>
+        <p class="lead">Jasmine green milk tea, grape green tea with real grape jelly, sparkling fruit teas and more &mdash; brewed to order in a relaxed Southport tea shop with comfy seating and soothing music.</p>
+        <div class="cta-row"><a class="btn lilac" href="#finder">Find your tea</a><a class="btn" style="background:transparent;box-shadow:inset 0 0 0 2px #fff" href="#menu">See the menu</a></div>
+      </div>
+      <div class="glow" aria-hidden="true">
+        <svg class="float" viewBox="0 0 320 340">
+          <ellipse cx="160" cy="316" rx="110" ry="12" fill="rgba(0,0,0,.28)"/>
+          <path d="M72 80h176l-16 214a20 20 0 0 1-20 18H108a20 20 0 0 1-20-18z" fill="rgba(255,255,255,.12)" stroke="#fff" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M82 150h156l-12 144a14 14 0 0 1-14 14H108a14 14 0 0 1-14-14z" fill="#8f78d6"/>
+          <path d="M92 220h136l-8 74a14 14 0 0 1-14 14H108a14 14 0 0 1-14-14z" fill="#6c55b8"/>
+          <g fill="#3b2a6d"><circle cx="122" cy="282" r="9"/><circle cx="152" cy="290" r="9"/><circle cx="182" cy="282" r="9"/><circle cx="138" cy="262" r="9"/><circle cx="168" cy="260" r="9"/></g>
+          <rect x="62" y="62" width="196" height="26" rx="13" fill="#cfeee3" stroke="#fff" stroke-width="5"/>
+          <rect x="150" y="6" width="12" height="100" rx="6" fill="#ffcfae" transform="rotate(10 156 56)"/>
+          <circle cx="206" cy="178" r="6" fill="#fff" opacity=".6"/><circle cx="116" cy="196" r="5" fill="#fff" opacity=".5"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip"><div class="wrap">
+    <div><b>Late</b>Open till 9&ndash;10pm</div><div><b>Cosy seating</b>Soothing music</div><div><b>Brewed fresh</b>Made to order</div><div><b>Davenport St</b>Southport</div>
+  </div></div>
+
+  <section id="finder">
+    <div class="wrap">
+      <div class="sec-head center reveal"><span class="kick">Tea finder</span><h2>What are you in the mood for?</h2><p>Tap a vibe and we&rsquo;ll suggest a drink.</p></div>
+      <div class="finder reveal">
+        <div><h3>Pick a vibe</h3>
+          <div class="vibes" role="group" aria-label="Tea vibe">
+            <button class="vibe" type="button" data-v="creamy" aria-pressed="true">Creamy &amp; comforting</button>
+            <button class="vibe" type="button" data-v="fruity" aria-pressed="false">Fruity &amp; fresh</button>
+            <button class="vibe" type="button" data-v="light" aria-pressed="false">Light &amp; floral</button>
+            <button class="vibe" type="button" data-v="fizzy" aria-pressed="false">Fizzy &amp; fun</button>
+          </div></div>
+        <div class="pick" aria-live="polite"><small>Try this</small><h4 id="pick-name"></h4><p id="pick-desc"></p><span class="pr" id="pick-price"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center reveal"><span class="kick">Menu highlights</span><h2>Sip the favourites</h2></div>
+      <div class="menu-grid">
+        <article class="card reveal"><h3>Milk tea <span>Creamy</span></h3>
+          <div class="item"><b>Jasmine Green Milk Tea <span class="tag">Signature</span></b><span class="p">$7.50</span><small>Fragrant jasmine green tea with fresh milk.</small></div>
+          <div class="item"><b>Classic Black Milk Tea</b><span class="p">$7.00</span></div>
+          <div class="item"><b>Brown Sugar Pearl Milk</b><span class="p">$8.50</span></div>
+          <div class="item"><b>Taro Milk Tea</b><span class="p">$8.00</span></div>
+        </article>
+        <article class="card reveal"><h3>Fruit tea <span>Fresh</span></h3>
+          <div class="item"><b>Grape Green Tea &amp; Grape Jelly <span class="tag">Fan fave</span></b><span class="p">$8.00</span><small>Sweet grape, fragrant green tea and chewy grape jelly.</small></div>
+          <div class="item"><b>Passion Fruit Green Tea</b><span class="p">$7.50</span></div>
+          <div class="item"><b>Peach Oolong</b><span class="p">$7.50</span></div>
+          <div class="item"><b>Lychee Green Tea</b><span class="p">$7.50</span></div>
+        </article>
+        <article class="card reveal"><h3>Sparkling <span>Fizzy</span></h3>
+          <div class="item"><b>Sparkling Lemon Green Tea</b><span class="p">$7.50</span></div>
+          <div class="item"><b>Sparkling Lychee</b><span class="p">$7.50</span></div>
+          <div class="item"><b>Sparkling Water</b><span class="p">$4.00</span></div>
+        </article>
+        <article class="card reveal"><h3>Toppings <span>+$1</span></h3>
+          <div class="item"><b>Pearls</b><span class="p">+$1.00</span></div>
+          <div class="item"><b>Grape jelly</b><span class="p">+$1.00</span></div>
+          <div class="item"><b>Pudding</b><span class="p">+$1.00</span></div>
+          <div class="item"><b>Aloe jelly</b><span class="p">+$1.00</span></div>
+        </article>
+      </div>
+      <p class="menu-note">Sample menu and pricing shown for illustration &mdash; to be replaced with You &amp; M Tea Shop&rsquo;s real menu.</p>
+    </div>
+  </section>
+
+  <section class="dark" id="hangout">
+    <div class="wrap split">
+      <div class="reveal"><div class="sec-head" style="margin-bottom:0"><span class="kick">Hang out</span><h2>Bring your people.</h2><p>Study session, birthday catch-up or a quiet evening out? Tell us when you&rsquo;re coming and we&rsquo;ll save a spot.</p></div>
+        <ul class="perks"><li>Comfy seating and soothing music</li><li>Group and party orders</li><li>Open late, seven days</li></ul></div>
+      <form class="formcard reveal" id="inquiry" name="you-and-m-booking" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="you-and-m-booking">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>I&rsquo;d like to<select name="type"><option>Save a spot for a group</option><option>Order for a party</option><option>Ask about an event</option></select></label>
+        <div class="row two"><label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx"></label></div>
+        <div class="row three"><label>Date<input name="date" id="d" type="date" required></label><label>Time<input name="time" type="time" min="12:00" max="21:30" required></label><label>People<select name="guests"><option>2&ndash;3</option><option>4&ndash;6</option><option>7&ndash;10</option><option>10+</option></select></label></div>
+        <label>Notes <span class="fine">(optional)</span><textarea name="message" id="msg" placeholder="Occasion, drinks you want, anything else&hellip;"></textarea></label>
+        <button class="btn" type="submit">Send request</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm by SMS &mdash; this isn&rsquo;t an automatic booking.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit">
+      <div class="reveal"><div class="sec-head" style="margin-bottom:16px"><span class="kick">Visit</span><h2>Find us on Davenport St</h2></div>
+        <address><strong>You &amp; M Tea Shop</strong><br>26 Davenport Street<br>Southport QLD 4215</address>
+        <div class="links"><a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=You+%26+M+Tea+Shop+26+Davenport+Street+Southport" target="_blank" rel="noopener">Directions</a></div></div>
+      <div class="reveal"><table class="hours"><caption style="position:absolute;left:-9999px">Opening hours</caption><tbody>
+        <tr><th scope="row">Monday &ndash; Thursday</th><td>12:00pm &ndash; 9:00pm</td></tr>
+        <tr><th scope="row">Friday &ndash; Saturday</th><td>12:00pm &ndash; 10:00pm</td></tr>
+        <tr><th scope="row">Sunday</th><td>12:00pm &ndash; 9:30pm</td></tr></tbody></table></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><div class="brand">You <i>&amp;</i> M Tea Shop</div><p>Milk tea &amp; fruit tea &middot; Southport, Gold Coast.</p></div>
+    <div><h4>Find us</h4><address>26 Davenport Street<br>Southport QLD 4215</address></div>
+    <div><h4>Hours</h4><span>Mon&ndash;Thu 12&ndash;9pm<br>Fri&ndash;Sat 12&ndash;10pm<br>Sun 12&ndash;9:30pm</span></div>
+  </div>
+  <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+</div></footer>
+
+<script>
+(function(){
+  var picks={
+    creamy:['Jasmine Green Milk Tea','Fragrant jasmine green tea with fresh milk — smooth, soft and comforting.','$7.50 · add pearls +$1'],
+    fruity:['Grape Green Tea & Grape Jelly','Sweet grape, fragrant green tea and chewy grape jelly.','$8.00'],
+    light:['Lychee Green Tea','Light, floral and refreshing — lychee over fragrant green tea.','$7.50'],
+    fizzy:['Sparkling Lemon Green Tea','Bubbly, zesty and super refreshing over ice.','$7.50']
+  };
+  var vs=document.querySelectorAll('.vibe');
+  function show(k){var p=picks[k];document.getElementById('pick-name').textContent=p[0];document.getElementById('pick-desc').textContent=p[1];document.getElementById('pick-price').textContent=p[2];}
+  vs.forEach(function(b){b.addEventListener('click',function(){vs.forEach(function(x){x.setAttribute('aria-pressed',x===b);});show(b.getAttribute('data-v'));});});
+  show('creamy');
+  var d=document.getElementById('d');if(d){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());d.min=t.toISOString().slice(0,10);}
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){if(!r.ok)throw new Error('x');form.reset();note.className='form-note ok';note.textContent='Thanks! Request received — we’ll text to confirm.';})
+      .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+      .then(function(){btn.disabled=false;});
+  });
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});}else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>

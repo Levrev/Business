@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Milestone Caf&eacute; &amp; Kitchen &mdash; Croffles &amp; Coffee, Southport</title>
+<meta name="description" content="Seoul-inspired croffles, matcha and silky lattes in a warm mid-century caf&eacute; in Southport. Open daily 7am&ndash;2pm.">
+<meta name="theme-color" content="#7a5236">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap">
+<style>
+  :root{
+    --cream:#f6efe2; --cream-2:#ebe0cc; --walnut:#6f4a31; --walnut-d:#4e3322; --sage:#8a9a7b; --sage-d:#5f7152;
+    --matcha:#a9c27a; --terra:#c8744a; --ink:#2b2119; --muted:#7a6a5b; --line:rgba(78,51,34,.18);
+    --serif:"DM Serif Display","Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;} svg{display:block;max-width:100%;}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;line-height:1.08;color:var(--walnut-d);}
+  p{margin:0;}
+  .wrap{width:min(1100px,100% - 40px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:var(--walnut-d);color:#fff;padding:8px 14px;z-index:100;}
+  .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--terra);outline-offset:3px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;border:2px solid var(--walnut);background:var(--walnut);color:var(--cream);font:700 .94rem var(--sans);border-radius:999px;cursor:pointer;transition:background .15s,transform .15s;white-space:nowrap;}
+  .btn:hover{background:var(--walnut-d);border-color:var(--walnut-d);transform:translateY(-1px);}
+  .btn.ghost{background:transparent;color:var(--walnut-d);} .btn.ghost:hover{background:var(--walnut-d);color:var(--cream);}
+  .btn.sm{min-height:40px;padding:0 18px;font-size:.85rem;}
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(246,239,226,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px;}
+  .brand{font-family:var(--serif);font-size:1.55rem;color:var(--walnut-d);white-space:nowrap;}
+  .brand em{font-style:italic;color:var(--sage-d);}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:28px;font-weight:500;font-size:.94rem;}
+  .nav ul a:hover{color:var(--terra);}
+  @media(min-width:860px){.nav ul{display:flex;}}
+
+  .hero{padding:56px 0 76px;overflow:hidden;}
+  .hero-grid{display:grid;gap:40px;align-items:center;}
+  @media(min-width:920px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:56px;}}
+  .kick{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-d);}
+  .hero h1{font-size:clamp(2.8rem,7.4vw,5.2rem);margin:16px 0 20px;}
+  .hero h1 em{color:var(--terra);}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:44ch;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;}
+  .chip{background:var(--cream-2);border-radius:999px;padding:7px 16px;font-size:.86rem;font-weight:500;color:var(--walnut-d);}
+  .art{position:relative;justify-self:center;width:min(440px,90vw);aspect-ratio:1;}
+  .art .arch{position:absolute;inset:4% 8% 0;background:var(--sage);border-radius:999px 999px 24px 24px;}
+  .art .sun{position:absolute;width:34%;aspect-ratio:1;border-radius:50%;background:var(--terra);right:2%;top:2%;}
+  .art svg{position:absolute;inset:0;width:100%;height:100%;}
+
+  section{padding:76px 0;}
+  .sec-head{margin-bottom:34px;max-width:620px;} .sec-head.center{text-align:center;margin-inline:auto;}
+  .sec-head h2{font-size:clamp(2.1rem,5vw,3.3rem);margin-top:12px;}
+  .sec-head p{margin-top:14px;color:var(--muted);}
+  .band{background:var(--walnut-d);color:var(--cream);}
+  .band h2,.band h3{color:var(--cream);} .band .kick{color:var(--matcha);} .band p{color:#dccdb6;}
+
+  .about{display:grid;gap:36px;align-items:center;}
+  @media(min-width:900px){.about{grid-template-columns:1fr 1fr;gap:64px;}}
+  .about p+p{margin-top:16px;}
+  .facts{display:grid;gap:14px;}
+  .fact{background:rgba(246,239,226,.07);border:1px solid rgba(246,239,226,.16);border-radius:18px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;}
+  .fact .ic{flex:none;width:44px;height:44px;border-radius:50%;background:var(--matcha);color:var(--walnut-d);display:grid;place-items:center;font-family:var(--serif);font-size:1.2rem;}
+  .fact h3{font-size:1.2rem;margin-bottom:2px;} .fact p{font-size:.93rem;}
+
+  .menu-grid{display:grid;gap:20px;} @media(min-width:800px){.menu-grid{grid-template-columns:1fr 1fr;gap:24px;}}
+  .card{background:#fffaf0;border:1px solid var(--line);border-radius:24px;padding:28px;}
+  .card h3{font-size:1.7rem;padding-bottom:12px;border-bottom:2px solid var(--walnut);margin-bottom:6px;display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+  .card h3 span{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);}
+  .item{padding:13px 0;border-bottom:1px dashed var(--line);display:grid;grid-template-columns:1fr auto;gap:2px 14px;}
+  .item:last-child{border-bottom:0;}
+  .item b{font-weight:700;} .item .p{font-weight:700;font-variant-numeric:tabular-nums;} .item small{grid-column:1/-1;color:var(--muted);font-size:.9rem;}
+  .tag{display:inline-block;margin-left:8px;background:var(--matcha);color:var(--walnut-d);font:700 .62rem var(--sans);letter-spacing:.1em;text-transform:uppercase;padding:2px 9px;border-radius:999px;vertical-align:middle;}
+  .menu-note{text-align:center;margin-top:24px;font-size:.84rem;color:var(--muted);}
+
+  .book{display:grid;gap:36px;align-items:start;} @media(min-width:900px){.book{grid-template-columns:.85fr 1.15fr;gap:64px;}}
+  .perks{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px;color:#e8dcc6;}
+  .perks li{display:flex;gap:12px;} .perks li::before{content:"\2766";color:var(--matcha);}
+  form.formcard{background:var(--cream);color:var(--ink);border-radius:26px;padding:28px;display:grid;gap:14px;}
+  @media(max-width:520px){form.formcard{padding:20px;}}
+  .row{display:grid;gap:14px;} @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}.row.three{grid-template-columns:1fr 1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.84rem;font-weight:700;color:var(--walnut-d);}
+  input,select,textarea{font:400 1rem var(--sans);padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;background:#fffdf7;color:var(--ink);width:100%;min-height:48px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(200,116,74,.2);}
+  textarea{min-height:92px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-weight:700;font-size:.92rem;} .form-note.ok{color:#2e7a45;} .form-note.err{color:#b4442a;}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:400;}
+
+  .visit{display:grid;gap:30px;} @media(min-width:860px){.visit{grid-template-columns:1fr 1fr;gap:64px;}}
+  address{font-style:normal;font-size:1.08rem;}
+  .hours{width:100%;border-collapse:collapse;} .hours th,.hours td{padding:13px 0;border-bottom:1px solid var(--line);text-align:left;font-weight:500;}
+  .hours td{text-align:right;font-weight:700;color:var(--walnut-d);}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;}
+  .parking{margin-top:18px;display:inline-flex;gap:10px;align-items:center;background:var(--cream-2);border-radius:14px;padding:10px 16px;font-weight:600;font-size:.92rem;}
+
+  footer{background:var(--walnut-d);color:#d3c4ac;padding:44px 0 32px;font-size:.92rem;}
+  .foot{display:grid;gap:22px;} @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:var(--cream);display:inline-block;margin-bottom:8px;} footer .brand em{color:var(--matcha);}
+  footer h4{margin:0 0 8px;color:var(--matcha);font:700 .78rem var(--sans);letter-spacing:.14em;text-transform:uppercase;} footer a:hover{color:#fff;}
+  .disclaimer{margin-top:26px;padding-top:16px;border-top:1px solid rgba(246,239,226,.16);font-size:.72rem;color:#a3917a;}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;} .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none;}.btn{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="#top" aria-label="Milestone Caf&eacute; home">Milestone <em>Caf&eacute;</em></a>
+  <nav aria-label="Primary"><ul><li><a href="#story">Our Story</a></li><li><a href="#menu">Menu</a></li><li><a href="#reserve">Reserve</a></li><li><a href="#visit">Visit</a></li></ul></nav>
+  <a class="btn sm" href="#reserve">Reserve</a>
+</div></header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kick">Caf&eacute; &amp; Kitchen &middot; Southport</span>
+        <h1>Every cup is a <em>milestone.</em></h1>
+        <p class="lead">Seoul-inspired croffles, ceremonial-style matcha and silky lattes, served in a warm mid-century space with natural wood, greenery and hand-picked ceramics.</p>
+        <div class="cta-row"><a class="btn" href="#menu">See the menu</a><a class="btn ghost" href="#reserve">Reserve a table</a></div>
+        <div class="chips"><span class="chip">Open daily 7am&ndash;2pm</span><span class="chip">3 hours free parking</span><span class="chip">Indoor &amp; outdoor seating</span></div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="arch"></div><div class="sun"></div>
+        <svg viewBox="0 0 440 440">
+          <ellipse cx="220" cy="388" rx="150" ry="16" fill="rgba(78,51,34,.2)"/>
+          <ellipse cx="220" cy="330" rx="150" ry="40" fill="#fffaf0"/>
+          <ellipse cx="220" cy="320" rx="150" ry="40" fill="#f6efe2" stroke="#6f4a31" stroke-width="5"/>
+          <g transform="translate(220 296)">
+            <path d="M-100 0c0-40 45-70 100-70s100 30 100 70-45 36-100 36S-100 40-100 0z" fill="#e2b06c"/>
+            <path d="M-100 0c0-40 45-70 100-70s100 30 100 70" fill="none" stroke="#b9823a" stroke-width="4"/>
+            <g stroke="#b9823a" stroke-width="5" stroke-linecap="round" fill="none"><path d="M-60-36l20 60M-20-48l14 78M24-48l-8 78M64-36l-20 60"/><path d="M-84-6h168M-70 20h140"/></g>
+            <ellipse cx="0" cy="-62" rx="46" ry="16" fill="#fffaf0"/>
+            <path d="M-30-68q30-24 60 0" fill="none" stroke="#a9c27a" stroke-width="10" stroke-linecap="round"/>
+            <circle cx="52" cy="-30" r="9" fill="#c4452b"/><circle cx="-56" cy="-26" r="7" fill="#c4452b"/>
+          </g>
+          <g fill="none" stroke="#fffaf0" stroke-width="6" stroke-linecap="round" opacity=".8"><path d="M190 120c-14-18 14-34 0-54"/><path d="M240 130c-14-18 14-34 0-54"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="story">
+    <div class="wrap about">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:20px"><span class="kick">Our story</span><h2>One good coffee can change a day.</h2></div>
+        <p>Milestone was started by Selena Mun, born and raised in Korea, with a simple belief: a single cup of coffee can become a small milestone in someone&rsquo;s day.</p>
+        <p>The result is a warm, calm Southport caf&eacute; where Seoul-style croffles, matcha and carefully poured flat whites meet an easy mid-century setting &mdash; perfect for a slow morning, a catch-up or a little celebration.</p>
+      </div>
+      <div class="facts reveal">
+        <div class="fact"><span class="ic">1</span><div><h3>Seoul-inspired croffles</h3><p>Croissant meets waffle &mdash; crisp, buttery and loaded with sweet and savoury toppings.</p></div></div>
+        <div class="fact"><span class="ic">2</span><div><h3>Matcha &amp; silky lattes</h3><p>Smooth matcha drinks and well-made coffee, poured with care.</p></div></div>
+        <div class="fact"><span class="ic">3</span><div><h3>A space to linger</h3><p>Natural wood, plants and ceramics, with seating indoors and out.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="sec-head center reveal"><span class="kick">Menu highlights</span><h2>Croffles, coffee &amp; more</h2></div>
+      <div class="menu-grid">
+        <article class="card reveal"><h3>Croffles <span>Sweet &amp; savoury</span></h3>
+          <div class="item"><b>Biscoff Croffle <span class="tag">Fan fave</span></b><span class="p">$14.50</span><small>Warm croffle, Biscoff spread, crumble and vanilla ice cream.</small></div>
+          <div class="item"><b>Strawberry &amp; Cream Croffle</b><span class="p">$15.00</span><small>Fresh strawberries, whipped cream, berry compote.</small></div>
+          <div class="item"><b>Matcha Croffle</b><span class="p">$15.00</span><small>Matcha cream, red bean and a dusting of matcha.</small></div>
+          <div class="item"><b>Ham, Cheese &amp; Egg Croffle</b><span class="p">$16.50</span><small>Savoury croffle with ham, melted cheese and a soft egg.</small></div>
+        </article>
+        <article class="card reveal"><h3>Coffee &amp; matcha <span>Drinks</span></h3>
+          <div class="item"><b>Flat White</b><span class="p">$4.80</span></div>
+          <div class="item"><b>Latte / Cappuccino</b><span class="p">$4.80</span></div>
+          <div class="item"><b>Iced Matcha Latte <span class="tag">Matcha</span></b><span class="p">$7.00</span><small>Smooth matcha over milk and ice.</small></div>
+          <div class="item"><b>Einspänner</b><span class="p">$7.50</span><small>Double shot topped with sweet cream.</small></div>
+          <div class="item"><b>Hot Chocolate</b><span class="p">$5.50</span></div>
+        </article>
+        <article class="card reveal"><h3>Kitchen <span>Brunch</span></h3>
+          <div class="item"><b>Smashed Avocado Toast</b><span class="p">$18.50</span><small>Sourdough, feta, chilli oil, soft egg.</small></div>
+          <div class="item"><b>Korean Toastie</b><span class="p">$14.00</span><small>Egg, cheese and sweet-savoury sauce on grilled bread.</small></div>
+          <div class="item"><b>Granola Bowl</b><span class="p">$14.50</span><small>Greek yoghurt, seasonal fruit, honey.</small></div>
+        </article>
+        <article class="card reveal"><h3>Little extras <span>Treats</span></h3>
+          <div class="item"><b>Croffle Add-ons</b><span class="p">$2.00</span><small>Ice cream, extra cream, fruit or syrup.</small></div>
+          <div class="item"><b>Celebration Croffle Stack</b><span class="p">$38.00</span><small>Pre-order for birthdays and milestones.</small></div>
+          <div class="item"><b>Pastry of the Day</b><span class="p">$6.00</span></div>
+        </article>
+      </div>
+      <p class="menu-note">Sample menu and pricing shown for illustration &mdash; to be replaced with Milestone&rsquo;s real menu.</p>
+    </div>
+  </section>
+
+  <section class="band" id="reserve">
+    <div class="wrap book">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:0"><span class="kick">Reserve</span><h2>Celebrate your milestone.</h2><p>Planning a catch-up, birthday or small group? Let us know and we&rsquo;ll set up a table &mdash; or pre-order a celebration croffle stack.</p></div>
+        <ul class="perks"><li>Tables for groups and celebrations</li><li>Pre-order croffle stacks and treats</li><li>Daytime bookings, 7am&ndash;2pm</li></ul>
+      </div>
+      <form class="formcard reveal" id="inquiry" name="milestone-reserve" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="milestone-reserve">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>I&rsquo;d like to<select name="type"><option>Reserve a table</option><option>Pre-order a celebration stack</option><option>Ask about a group booking</option></select></label>
+        <div class="row two"><label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx"></label></div>
+        <div class="row three"><label>Date<input name="date" id="d" type="date" required></label><label>Time<input name="time" type="time" min="07:00" max="14:00" required></label><label>Guests<select name="guests"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select></label></div>
+        <label>Notes <span class="fine">(optional)</span><textarea name="message" placeholder="Occasion, dietary needs, pre-order details&hellip;"></textarea></label>
+        <button class="btn" type="submit">Send request</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm personally &mdash; this isn&rsquo;t an automatic reservation.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap visit">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:16px"><span class="kick">Visit</span><h2>Find us in Southport</h2></div>
+        <address><strong>Milestone Caf&eacute; &amp; Kitchen</strong><br>C001/56 Scarborough Street<br>Southport QLD 4215</address>
+        <div class="parking">&#127359; 3 hours free parking</div>
+        <div class="links"><a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=Milestone+Cafe+Kitchen+56+Scarborough+Street+Southport" target="_blank" rel="noopener">Directions</a><a class="btn sm ghost" href="tel:0452420666">0452 420 666</a><a class="btn sm ghost" href="https://www.instagram.com/milestone_gc" target="_blank" rel="noopener">Instagram</a></div>
+      </div>
+      <div class="reveal">
+        <table class="hours"><caption style="position:absolute;left:-9999px">Opening hours</caption><tbody>
+          <tr><th scope="row">Monday &ndash; Sunday</th><td>7:00am &ndash; 2:00pm</td></tr>
+        </tbody></table>
+        <p style="margin-top:16px;color:var(--muted)">Open every day for breakfast and lunch. Walk-ins always welcome.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><a class="brand" href="#top">Milestone <em>Caf&eacute;</em></a><p>Croffles, coffee &amp; kitchen in Southport, Gold Coast.</p></div>
+    <div><h4>Find us</h4><address>C001/56 Scarborough Street<br>Southport QLD 4215</address></div>
+    <div><h4>Contact</h4><a href="tel:0452420666">0452 420 666</a><br><a href="https://www.instagram.com/milestone_gc" target="_blank" rel="noopener">@milestone_gc</a></div>
+  </div>
+  <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+</div></footer>
+
+<script>
+(function(){
+  var d=document.getElementById('d');if(d){var t=new Date();t.setMinutes(t.getMinutes()-t.getTimezoneOffset());d.min=t.toISOString().slice(0,10);}
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){if(!r.ok)throw new Error('x');form.reset();note.className='form-note ok';note.textContent='Thank you! Your request is in — we’ll be in touch.';})
+      .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+      .then(function(){btn.disabled=false;});
+  });
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});els.forEach(function(el){io.observe(el);});}else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>

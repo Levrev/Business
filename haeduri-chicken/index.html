@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haeduri Chicken &mdash; Korean Fried Chicken, Southport</title>
+<meta name="description" content="Crunchy Korean fried chicken with sweet soy, spicy garlic and cheese flavours at Australia Fair Metro, Southport. Order for pickup or delivery.">
+<meta name="theme-color" content="#ff6a00">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --sun:#ff6a00; --sun-d:#d95500; --butter:#ffd84a; --cream:#fff6e0; --ink:#17110d; --char:#221a14;
+    --red:#e02a1c; --muted:#7d6c5d; --line:rgba(23,17,13,.14);
+    --display:"Black Han Sans","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic","Arial Black",Impact,sans-serif;
+    --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:76px;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:calc(72px + env(safe-area-inset-bottom,0px));}
+  @media(min-width:860px){body{padding-bottom:0;}}
+  a{color:inherit;text-decoration:none;} svg{display:block;max-width:100%;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;line-height:1.02;letter-spacing:.01em;}
+  p{margin:0;}
+  .wrap{width:min(1120px,100% - 32px);margin-inline:auto;}
+  .skip{position:absolute;left:-999px;top:8px;background:#000;color:#fff;padding:8px 14px;z-index:100;} .skip:focus{left:8px;}
+  :focus-visible{outline:3px solid var(--ink);outline-offset:3px;}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 28px;border:0;border-radius:14px;background:var(--ink);color:#fff;font:900 1rem var(--sans);cursor:pointer;transition:transform .12s,background .15s;white-space:nowrap;}
+  .btn:hover{background:#000;transform:translateY(-1px);} .btn:active{transform:scale(.97);}
+  .btn.sun{background:var(--sun);} .btn.sun:hover{background:var(--sun-d);}
+  .btn.butter{background:var(--butter);color:var(--ink);} .btn.butter:hover{background:#ffe27a;}
+  .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink);} .btn.ghost:hover{background:var(--ink);color:#fff;}
+  .btn.sm{min-height:42px;padding:0 18px;font-size:.88rem;border-radius:12px;}
+  .ticker{background:var(--ink);color:var(--butter);text-align:center;font-weight:700;font-size:.82rem;padding:8px 12px;}
+  .ticker a{text-decoration:underline;text-underline-offset:3px;}
+  .site-header{position:sticky;top:0;z-index:50;background:var(--sun);color:#fff;}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px;}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.45rem;white-space:nowrap;letter-spacing:.02em;}
+  .brand i{font-style:normal;font-family:var(--sans);font-weight:900;font-size:.82rem;background:var(--ink);color:var(--butter);padding:2px 8px;border-radius:6px;}
+  .nav ul{display:none;list-style:none;margin:0;padding:0;gap:26px;font-weight:700;font-size:.94rem;} .nav ul a:hover{text-decoration:underline;text-underline-offset:4px;}
+  @media(min-width:860px){.nav ul{display:flex;}}
+  @media(max-width:480px){.brand{font-size:1.2rem;}.brand i{display:none;}.nav .btn.sm{padding:0 14px;}}
+  .menu-layout>div,.items,.item{min-width:0;}
+  .nav .btn{background:var(--ink);} .nav .btn:hover{background:#000;}
+
+  .hero{background:var(--sun);color:#fff;padding:30px 0 0;position:relative;overflow:hidden;}
+  .hero::after{content:"";position:absolute;inset:auto -10% -60px -10%;height:120px;background:var(--cream);border-radius:50% 50% 0 0/100% 100% 0 0;}
+  .hero-grid{display:grid;gap:18px;align-items:center;position:relative;z-index:1;padding-bottom:70px;}
+  @media(min-width:900px){.hero{padding-top:56px;}.hero-grid{grid-template-columns:1.1fr .9fr;gap:30px;}}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .badge{background:rgba(0,0,0,.2);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.82rem;} .badge b{color:var(--butter);}
+  .hero h1{font-size:clamp(3.2rem,13vw,7.6rem);color:#fff;text-shadow:0 4px 0 rgba(0,0,0,.18);}
+  .hero h1 span{color:var(--butter);}
+  .hero .lead{margin:16px 0 24px;font-size:1.1rem;color:#fff1de;max-width:44ch;}
+  .cta-row{display:grid;gap:10px;} @media(min-width:520px){.cta-row{grid-template-columns:auto auto;justify-content:start;}}
+  .art{justify-self:center;width:min(380px,82vw);}
+  .wobble{animation:wob 4s ease-in-out infinite;transform-origin:50% 90%;} @keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+
+  section{padding:64px 0;}
+  .sec-head{margin-bottom:26px;max-width:640px;} .sec-head h2{font-size:clamp(2.4rem,8vw,4.2rem);}
+  .sec-head p{margin-top:10px;color:var(--muted);} .dark{background:var(--char);color:#fff;} .dark .sec-head p{color:#d9c9b8;}
+
+  .sauces{display:grid;gap:12px;} @media(min-width:700px){.sauces{grid-template-columns:repeat(2,1fr);}} @media(min-width:1000px){.sauces{grid-template-columns:repeat(4,1fr);}}
+  .sauce{border-radius:22px;padding:22px;color:#fff;position:relative;overflow:hidden;min-height:170px;}
+  .sauce h3{font-size:1.7rem;margin-bottom:6px;} .sauce p{font-size:.93rem;opacity:.95;} .sauce .em{position:absolute;right:12px;bottom:6px;font-size:3.4rem;opacity:.9;}
+  .s1{background:#c8641a;} .s2{background:#d4281c;} .s3{background:#2f2a24;} .s4{background:#e6a800;color:var(--ink);}
+
+  .menu-layout{display:grid;gap:20px;} @media(min-width:960px){.menu-layout{grid-template-columns:1.5fr .9fr;gap:28px;align-items:start;}}
+  .cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:10px;margin-bottom:6px;scrollbar-width:none;} .cats::-webkit-scrollbar{display:none;}
+  .cat{flex:none;border:0;border-radius:999px;padding:11px 20px;background:#fff;color:var(--ink);font:700 .92rem var(--sans);cursor:pointer;box-shadow:inset 0 0 0 2px var(--line);min-height:44px;}
+  .cat[aria-pressed="true"]{background:var(--ink);color:#fff;box-shadow:none;}
+  .items{display:grid;gap:10px;}
+  .item{background:#fff;border-radius:18px;padding:16px 18px;border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:4px 14px;align-items:center;}
+  .item[hidden]{display:none;}
+  .item h3{font-size:1.45rem;} .item p{grid-column:1;color:var(--muted);font-size:.9rem;}
+  .item .price{font-weight:900;font-size:1.1rem;font-variant-numeric:tabular-nums;text-align:right;}
+  .item .actions{grid-column:1/-1;display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap;}
+  .item select{flex:1;min-width:150px;font:700 .92rem var(--sans);padding:0 12px;min-height:46px;border:2px solid var(--line);border-radius:12px;background:var(--cream);color:var(--ink);}
+  .add{min-height:46px;padding:0 22px;border:0;border-radius:12px;background:var(--sun);color:#fff;font:900 .95rem var(--sans);cursor:pointer;} .add:hover{background:var(--sun-d);} .add:active{transform:scale(.96);}
+  .hot{display:inline-block;margin-left:8px;vertical-align:middle;background:var(--red);color:#fff;font:900 .6rem var(--sans);letter-spacing:.08em;padding:3px 8px;border-radius:6px;text-transform:uppercase;}
+  .menu-note{margin-top:16px;font-size:.82rem;color:var(--muted);}
+
+  .cart{background:var(--ink);color:#fff;border-radius:22px;padding:22px;position:sticky;top:84px;}
+  .cart h3{font-size:1.8rem;color:var(--butter);margin-bottom:12px;}
+  .cart ul{list-style:none;margin:0;padding:0;display:grid;gap:12px;min-height:44px;}
+  .cart li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:.93rem;align-items:center;} .cart li small{grid-column:1;color:#bfae9f;font-size:.8rem;}
+  .cart .q{display:inline-flex;align-items:center;gap:6px;grid-row:1/3;grid-column:2;} .cart .q button{width:30px;height:30px;border:0;border-radius:8px;background:rgba(255,255,255,.16);color:#fff;font-weight:900;cursor:pointer;}
+  .cart .empty{color:#a89886;font-size:.92rem;display:block;}
+  .cart .total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.2);margin:14px 0;padding-top:14px;} .cart .total b{font-family:var(--display);font-size:2.2rem;}
+
+  .split{display:grid;gap:28px;align-items:start;} @media(min-width:900px){.split{grid-template-columns:.85fr 1.15fr;gap:54px;}}
+  form.card{background:#fff;color:var(--ink);border-radius:22px;padding:24px;display:grid;gap:14px;} @media(max-width:520px){form.card{padding:18px;}}
+  .row{display:grid;gap:14px;} @media(min-width:560px){.row.two{grid-template-columns:1fr 1fr;}}
+  label{display:grid;gap:6px;font-size:.84rem;font-weight:700;}
+  input,select,textarea{font:500 1rem var(--sans);padding:13px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);width:100%;min-height:50px;}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sun);box-shadow:0 0 0 4px rgba(255,106,0,.2);}
+  textarea{min-height:120px;resize:vertical;}
+  .hp{position:absolute;left:-9999px;}
+  .form-note{min-height:1.4em;font-weight:700;font-size:.92rem;} .form-note.ok{color:#17803d;} .form-note.err{color:var(--red);}
+  .fine{font-size:.78rem;color:var(--muted);font-weight:500;}
+  .perks{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px;color:#f1e3d2;} .perks li{display:flex;gap:10px;} .perks li::before{content:"\1F357";}
+
+  .visit{display:grid;gap:16px;} @media(min-width:820px){.visit{grid-template-columns:1fr 1fr;gap:22px;}}
+  .info{background:#fff;border-radius:22px;padding:26px;border:1px solid var(--line);} .info h3{font-size:1.9rem;margin-bottom:10px;} address{font-style:normal;}
+  .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+
+  footer{background:var(--ink);color:#d1c3b4;padding:40px 0 34px;font-size:.92rem;}
+  .foot{display:grid;gap:20px;} @media(min-width:760px){.foot{grid-template-columns:1.2fr 1fr 1fr;}}
+  footer .brand{color:#fff;margin-bottom:8px;} footer h4{margin:0 0 8px;color:var(--butter);font:900 .76rem var(--sans);letter-spacing:.14em;text-transform:uppercase;} footer a:hover{color:#fff;}
+  .disclaimer{margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:.72rem;color:#948675;}
+  .order-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:2fr 1fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--ink);border-top:3px solid var(--butter);}
+  .order-bar a{min-height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.98rem;} .order-bar .go{background:var(--sun);color:#fff;} .order-bar .map{background:var(--butter);color:var(--ink);}
+  @media(min-width:860px){.order-bar{display:none;}}
+  .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease;} .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.wobble{animation:none}.reveal{opacity:1;transform:none;transition:none;}.btn,.add{transition:none;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ticker">Fresh &amp; crunchy &mdash; order for pickup below or on <a href="https://www.ubereats.com/au/store/haeduri-chicken-southport-young-street/Q8jCj7E5V_CErLc3-VtQjA" target="_blank" rel="noopener">Uber Eats</a></div>
+<header class="site-header"><div class="wrap nav">
+  <a class="brand" href="#top" aria-label="Haeduri Chicken home">Haeduri Chicken <i>해두리</i></a>
+  <nav aria-label="Primary"><ul><li><a href="#flavours">Flavours</a></li><li><a href="#menu">Menu</a></li><li><a href="#order">Order</a></li><li><a href="#visit">Visit</a></li></ul></nav>
+  <a class="btn sm" href="#menu">Order now</a>
+</div></header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badges"><span class="badge"><b>&#9733; 4.8</b> 370+ ratings on Uber Eats</span><span class="badge">Australia Fair Metro</span></div>
+        <h1>Crunch <span>on.</span></h1>
+        <p class="lead">Korean fried chicken, fried to order and tossed in sweet soy, spicy garlic or golden cheese. Crispy outside, juicy inside &mdash; ready for pickup or delivery in Southport.</p>
+        <div class="cta-row"><a class="btn butter" href="#menu">Order for pickup</a><a class="btn" href="https://www.ubereats.com/au/store/haeduri-chicken-southport-young-street/Q8jCj7E5V_CErLc3-VtQjA" target="_blank" rel="noopener">Delivery via Uber Eats</a></div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <svg class="wobble" viewBox="0 0 360 320">
+          <ellipse cx="180" cy="296" rx="130" ry="14" fill="rgba(0,0,0,.2)"/>
+          <path d="M70 130h220l-20 150a16 16 0 0 1-16 14H106a16 16 0 0 1-16-14z" fill="#fff"/>
+          <path d="M70 130h220l-6 44H76z" fill="#e02a1c"/>
+          <g>
+            <ellipse cx="130" cy="108" rx="44" ry="34" fill="#d98a2b"/><ellipse cx="124" cy="102" rx="36" ry="26" fill="#eba947"/>
+            <ellipse cx="206" cy="98" rx="46" ry="36" fill="#d98a2b"/><ellipse cx="200" cy="92" rx="38" ry="28" fill="#f0b455"/>
+            <ellipse cx="170" cy="76" rx="40" ry="30" fill="#d98a2b"/><ellipse cx="166" cy="70" rx="32" ry="22" fill="#eeb04f"/>
+            <rect x="62" y="48" width="14" height="52" rx="7" fill="#fff6e0" transform="rotate(-20 69 74)"/><circle cx="58" cy="44" r="10" fill="#fff6e0"/>
+          </g>
+          <text x="180" y="236" text-anchor="middle" font-family="Black Han Sans, Impact, sans-serif" font-size="46" fill="#17110d">해두리</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="flavours">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Pick your flavour</h2><p>Every order is fried fresh and tossed in your choice of sauce.</p></div>
+      <div class="sauces">
+        <div class="sauce s1 reveal"><h3>Sweet soy</h3><p>Glossy, garlicky and just sweet enough.</p><span class="em">&#127855;</span></div>
+        <div class="sauce s2 reveal"><h3>Spicy</h3><p>A sweet-and-spicy chilli kick that builds.</p><span class="em">&#127798;</span></div>
+        <div class="sauce s3 reveal"><h3>Spicy garlic</h3><p>Punchy garlic with a slow chilli burn.</p><span class="em">&#129476;</span></div>
+        <div class="sauce s4 reveal"><h3>Golden cheese</h3><p>Fried chicken dusted in moreish cheese.</p><span class="em">&#129472;</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="menu">
+    <div class="wrap">
+      <div class="sec-head reveal"><h2>Build your order</h2><p>Choose a flavour, tap Add, then send it for pickup.</p></div>
+      <div class="menu-layout">
+        <div>
+          <div class="cats" role="group" aria-label="Menu categories">
+            <button class="cat" type="button" data-cat="all" aria-pressed="true">All</button>
+            <button class="cat" type="button" data-cat="chicken" aria-pressed="false">Chicken</button>
+            <button class="cat" type="button" data-cat="combo" aria-pressed="false">Combos</button>
+            <button class="cat" type="button" data-cat="side" aria-pressed="false">Sides</button>
+          </div>
+          <div class="items" id="items">
+            <article class="item" data-cat="chicken" data-name="Original Wings (8)" data-price="15.90"><h3>Original wings (8) <span class="hot">Fan fave</span></h3><span class="price">$15.90</span><p>Crispy original-style wings, tossed in your sauce.</p><div class="actions"><select aria-label="Flavour"><option>Sweet soy</option><option>Spicy</option><option>Spicy garlic</option><option>Plain</option></select><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="chicken" data-name="Boneless Chicken" data-price="22.90"><h3>Boneless chicken</h3><span class="price">$22.90</span><p>Juicy boneless pieces, double-fried for extra crunch.</p><div class="actions"><select aria-label="Flavour"><option>Sweet soy</option><option>Spicy</option><option>Spicy garlic</option><option>Golden cheese</option></select><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="chicken" data-name="Golden Cheese Chicken" data-price="24.90"><h3>Golden cheese chicken <span class="hot">Hot</span></h3><span class="price">$24.90</span><p>Crispy chicken coated in golden cheese seasoning.</p><div class="actions"><select aria-label="Size"><option>Regular</option><option>Large</option></select><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="chicken" data-name="Sweet &amp; Spicy Chicken" data-price="24.90"><h3>Sweet &amp; spicy chicken</h3><span class="price">$24.90</span><p>The classic yangnyeom-style glaze, sticky and fiery.</p><div class="actions"><select aria-label="Spice"><option>Medium</option><option>Hot</option><option>Mild</option></select><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="combo" data-name="Chicken + Rice Combo" data-price="18.90"><h3>Chicken + rice combo</h3><span class="price">$18.90</span><p>Boneless chicken, steamed rice and pickled radish.</p><div class="actions"><select aria-label="Flavour"><option>Sweet soy</option><option>Spicy</option><option>Spicy garlic</option></select><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="combo" data-name="Share Box (2 people)" data-price="49.90"><h3>Share box (2 people)</h3><span class="price">$49.90</span><p>Half-and-half chicken, chips and two drinks.</p><div class="actions"><select aria-label="Flavours"><option>Sweet soy + Spicy</option><option>Cheese + Sweet soy</option><option>Spicy garlic + Cheese</option></select><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="side" data-name="Cheese Chips" data-price="9.50"><h3>Cheese chips</h3><span class="price">$9.50</span><p>Crinkle chips with melted cheese and mayo drizzle.</p><div class="actions"><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="side" data-name="Pickled Radish" data-price="3.00"><h3>Pickled radish</h3><span class="price">$3.00</span><p>Cool, crunchy and tangy.</p><div class="actions"><button class="add" type="button">Add</button></div></article>
+            <article class="item" data-cat="side" data-name="Soft Drink" data-price="4.00"><h3>Soft drink</h3><span class="price">$4.00</span><p>Cola, lemonade or sparkling water.</p><div class="actions"><select aria-label="Drink"><option>Cola</option><option>Lemonade</option><option>Sparkling water</option></select><button class="add" type="button">Add</button></div></article>
+          </div>
+          <p class="menu-note" style="color:#bfae9f">Sample menu and pricing shown for illustration &mdash; to be replaced with Haeduri Chicken&rsquo;s real menu.</p>
+        </div>
+        <aside class="cart" aria-label="Your order"><h3>Your order</h3>
+          <ul id="cart-list"><li class="empty">Nothing yet &mdash; pick a flavour and tap Add.</li></ul>
+          <div class="total"><span>Total</span><b id="cart-total">$0.00</b></div>
+          <a class="btn butter" style="width:100%" href="#order">Send for pickup</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap split">
+      <div class="reveal"><div class="sec-head" style="margin-bottom:0"><h2>Ready when you are</h2><p>Send your order and we&rsquo;ll confirm by SMS. Big group or office lunch? Add a note and we&rsquo;ll sort it.</p></div>
+        <ul class="perks" style="color:var(--muted)"><li>Fried fresh to order</li><li>Pickup from Australia Fair Metro</li><li>Catering &amp; party trays on request</li></ul></div>
+      <form class="card reveal" id="inquiry" name="haeduri-order" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="haeduri-order">
+        <p class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="row two"><label>Name<input name="name" required autocomplete="name" placeholder="Your name"></label><label>Mobile<input name="phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="04xx xxx xxx"></label></div>
+        <div class="row two"><label>Order type<select name="type"><option>Pickup</option><option>Large / catering order</option></select></label><label>Pickup time<input name="time" type="time" required></label></div>
+        <label>Your order<textarea name="order" id="order-text" required placeholder="Add items above, or type your order here"></textarea></label>
+        <button class="btn sun" type="submit">Send my order</button>
+        <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+        <p class="fine">We&rsquo;ll confirm by SMS or phone. Pay in store.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="visit" style="padding-top:0">
+    <div class="wrap visit">
+      <div class="info reveal"><h3>Find us</h3><address><strong>Haeduri Chicken Southport</strong><br>6 Young Street (Australia Fair Metro)<br>Southport QLD 4215</address>
+        <div class="links"><a class="btn sm" href="https://www.google.com/maps/search/?api=1&amp;query=Haeduri+Chicken+6+Young+Street+Southport" target="_blank" rel="noopener">Directions</a></div></div>
+      <div class="info reveal"><h3>Order online</h3><p>Open for lunch and dinner &mdash; check Uber Eats for today&rsquo;s hours and delivery.</p>
+        <div class="links"><a class="btn sm sun" href="https://www.ubereats.com/au/store/haeduri-chicken-southport-young-street/Q8jCj7E5V_CErLc3-VtQjA" target="_blank" rel="noopener">Uber Eats</a></div></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div><div class="brand">Haeduri Chicken <i>해두리</i></div><p>Korean fried chicken &middot; Southport, Gold Coast.</p></div>
+    <div><h4>Find us</h4><address>6 Young Street (Australia Fair Metro)<br>Southport QLD 4215</address></div>
+    <div><h4>Order</h4><a href="https://www.ubereats.com/au/store/haeduri-chicken-southport-young-street/Q8jCj7E5V_CErLc3-VtQjA" target="_blank" rel="noopener">Uber Eats</a></div>
+  </div>
+  <p class="disclaimer">Concept design by LK Systems &mdash; not the business's live site. Sample menu &amp; pricing for illustration.</p>
+</div></footer>
+
+<nav class="order-bar" aria-label="Quick actions"><a class="go" href="#menu">Order now</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Haeduri+Chicken+6+Young+Street+Southport" target="_blank" rel="noopener">Map</a></nav>
+
+<script>
+(function(){
+  var cats=document.querySelectorAll('.cat'),items=document.querySelectorAll('#items .item');
+  cats.forEach(function(c){c.addEventListener('click',function(){cats.forEach(function(x){x.setAttribute('aria-pressed',x===c);});var f=c.getAttribute('data-cat');items.forEach(function(i){i.hidden=!(f==='all'||i.getAttribute('data-cat')===f);});});});
+  var cart=[],list=document.getElementById('cart-list'),totalEl=document.getElementById('cart-total'),ot=document.getElementById('order-text');
+  function money(n){return '$'+n.toFixed(2);}
+  function render(){
+    var total=0,lines=[];list.innerHTML='';
+    if(!cart.length){var e=document.createElement('li');e.className='empty';e.textContent='Nothing yet — pick a flavour and tap Add.';list.appendChild(e);}
+    cart.forEach(function(it,idx){
+      var sub=it.qty*it.price;total+=sub;lines.push(it.qty+' x '+it.name+(it.opt?' ('+it.opt+')':''));
+      var li=document.createElement('li');var s=document.createElement('span');s.textContent=it.name;li.appendChild(s);
+      var sm=document.createElement('small');sm.textContent=(it.opt?it.opt+' · ':'')+money(sub);li.appendChild(sm);
+      var q=document.createElement('span');q.className='q';
+      var m=document.createElement('button');m.type='button';m.textContent='−';m.setAttribute('aria-label','Remove one '+it.name);
+      var c=document.createElement('span');c.textContent=it.qty;
+      var p=document.createElement('button');p.type='button';p.textContent='+';p.setAttribute('aria-label','Add one '+it.name);
+      m.onclick=function(){it.qty--;if(it.qty<=0)cart.splice(idx,1);render();};p.onclick=function(){it.qty++;render();};
+      q.appendChild(m);q.appendChild(c);q.appendChild(p);li.appendChild(q);list.appendChild(li);
+    });
+    totalEl.textContent=money(total);ot.value=lines.length?lines.join('\n')+'\nTotal: '+money(total):'';
+  }
+  document.querySelectorAll('.add').forEach(function(b){b.addEventListener('click',function(){
+    var a=b.closest('.item'),name=a.getAttribute('data-name'),price=parseFloat(a.getAttribute('data-price')),sel=a.querySelector('select'),opt=sel?sel.value:'';
+    var f=cart.filter(function(x){return x.name===name&&x.opt===opt;})[0];
+    if(f)f.qty++;else cart.push({name:name,price:price,opt:opt,qty:1});render();
+  });});
+  var form=document.getElementById('inquiry'),note=document.getElementById('form-note');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var btn=form.querySelector('button[type=submit]');btn.disabled=true;note.className='form-note';note.textContent='Sending…';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(r){if(!r.ok)throw new Error('x');form.reset();cart=[];render();note.className='form-note ok';note.textContent='Order sent! We’ll text you to confirm.';})
+      .catch(function(){note.className='form-note err';note.textContent='Preview mode: this form submits once the site is deployed on Netlify.';})
+      .then(function(){btn.disabled=false;});
+  });
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.1});els.forEach(function(el){io.observe(el);});}else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>
